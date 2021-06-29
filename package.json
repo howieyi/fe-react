@@ -1,0 +1,59 @@
+{
+  "name": "iwr",
+  "version": "1.0.0",
+  "description": "基于 react 的 cli 脚手架构建工具",
+  "keywords": [
+    "webpack",
+    "react",
+    "cli"
+  ],
+  "bin": {
+    "iwr": "bin/iwr.js",
+    "iwr-create": "bin/iwr-create.js",
+    "iwr-dev": "bin/iwr-dev.js",
+    "iwr-prod": "bin/iwr-prod.js",
+    "iwr-umd": "bin/iwr-umd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:howieyi/water.git"
+  },
+  "bugs": {
+    "url": "https://github.com/howieyi/water/issues"
+  },
+  "homepage": "https://github.com/howieyi/water",
+  "author": "水逆",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "chalk": "^4.1.1",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "commander": "^8.0.0",
+    "css-loader": "^5.2.6",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-loader": "^2.1.2",
+    "inquirer": "^8.1.1",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.0",
+    "mini-css-extract-plugin": "^1.6.2",
+    "postcss-loader": "^6.1.0",
+    "style-loader": "^3.0.0",
+    "stylelint-webpack-plugin": "^2.2.2",
+    "terser-webpack-plugin": "^5.1.4",
+    "typescript": "^4.3.4",
+    "webpack": "^5.41.0",
+    "webpack-api-mocker": "^1.7.6",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

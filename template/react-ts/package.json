@@ -1,0 +1,20 @@
+{
+  "name": "{iwr-name}",
+  "version": "{iwr-version}",
+  "description": "{iwr-description}",
+  "author": "{iwr-author}",
+  "scripts": {
+    "dev": "iwr dev",
+    "prod": "iwr prod -i"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "xhr": "^2.5.0"
+  },
+  "devDependencies": {
+  },
+  "sideEffects": false
+}
