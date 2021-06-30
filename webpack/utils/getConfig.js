@@ -20,7 +20,7 @@ const getFile = (fileKey, name, options) => {
   if (!isExistJson && !isExistJs) {
     errorEdit("缺少配置文件");
   } else {
-    config = require(projectPath + `${isExistJs ? ".config.js" : ".json"}`);
+    config = import(projectPath + `${isExistJs ? ".config.js" : ".json"}`);
   }
 
   if (!name) return typeof config === "function" ? config(options) : config;

@@ -39,7 +39,7 @@ const getProjectEntry = ({ isDev = true, target, buildPath, splitPackages = [] }
         new HtmlWebpackPlugin({
           filename: resolve(buildPath, `index.html`),
           template: resolve(target, `index.html`),
-          chunks: [...splitPackages, 'common', _entryKey],
+          // chunks: [...splitPackages, 'common', _entryKey],
           inject: true, // head, body/true, false
           hash: !isDev,
           minify: {

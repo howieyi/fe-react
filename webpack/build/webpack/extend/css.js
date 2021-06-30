@@ -1,9 +1,8 @@
-const { join } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = ({ isDev = false, isUmd = false }, { module }) => {
+module.exports = ({ isDev = false, isUmd = false }, config) => {
   // 默认支持 less
-  module.rules.push(
+  config.module.rules.push(
     {
       test: /\.css$/,
       use: ['style-loader', 'css-loader'],

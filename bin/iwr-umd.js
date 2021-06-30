@@ -4,8 +4,7 @@ const { red } = require("chalk");
 const program = require("commander");
 
 program
-  .usage("[options] -i -m [module]")
-  .option("-m, --module [module]", "模块名称")
+  .usage("[options] -i [info]")
   .option("-i, --info", "是否打印记录")
   .parse(process.argv);
 

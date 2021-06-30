@@ -4,8 +4,7 @@ const { red } = require("chalk");
 const program = require("commander");
 
 program
-  .usage("[options] -i -m [module] -e [env]")
-  .option("-m, --module [module]", "模块名称")
+  .usage("[options] -i [info]")
   .option("-i, --info", "是否打印记录")
   .parse(process.argv);
 
@@ -18,7 +17,7 @@ if (!appConfig) {
 }
 
 const webpack = require("webpack");
-const isInfo = program.info;
+const isInfo = program._optionValues?.info;
 
 webpackConfig = require(`../webpack/build/webpack.prod.js`)({
   ...appConfig,

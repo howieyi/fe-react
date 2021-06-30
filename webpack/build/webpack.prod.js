@@ -1,11 +1,11 @@
-const TerserWebpackPlugin = require("terser-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
 
-module.exports = (app) => {
-  const baseConfig = require("./webpack/core")(
+module.exports = app => {
+  const baseConfig = require('./webpack/core')(
     {
       isDev: false,
       ...app,
@@ -13,6 +13,8 @@ module.exports = (app) => {
     {
       plugins: [
         new CleanWebpackPlugin(),
+
+        new webpack.ProgressPlugin(),
 
         // 把所有的样式都合并到一个文件
         new MiniCssExtractPlugin({
@@ -28,10 +30,10 @@ module.exports = (app) => {
   baseConfig.optimization.minimizer = [
     // 压缩打包的文件
     new TerserWebpackPlugin({
-      cache: false,
       parallel: true, // 启用并行化
-      sourceMap: app.sourceMap || false,
+      extractComments: false,
       terserOptions: {
+        sourceMap: false,
         ie8: true,
         safari10: true,
         ecma: 5,

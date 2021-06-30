@@ -40,7 +40,6 @@ module.exports = (
     target = 'src',
     buildPath = 'dist',
     publicPath = '/',
-    sourceMap = true,
     copyPath = 'src/public',
     markdown = false, // 是否支持 markdown 解析 html
     splitPackages = [],
@@ -72,7 +71,7 @@ module.exports = (
     // 支持 `webpack --mode=development/production`
     mode: isDev ? 'development' : 'production',
 
-    devtool: isDev ? 'inline-source-map' : sourceMap ? 'hidden-source-map' : false,
+    devtool: isDev ? 'inline-source-map' : false,
 
     devServer,
 
