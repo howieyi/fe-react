@@ -1,23 +1,36 @@
-const chalk = require("chalk");
-const { join } = require("path");
-const { existsSync } = require("fs");
+const chalk = require('chalk');
+const { join } = require('path');
+const { existsSync } = require('fs');
 
-const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
-const apiMocker = require("webpack-api-mocker");
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const apiMocker = require('webpack-api-mocker');
 
-const { getApp, errorEdit } = require("../utils/getConfig");
+const { getApp, errorEdit } = require('../utils/getConfig');
+
+function getIPAddress() {
+  const interfaces = require('os').networkInterfaces();
+  for (let devName in interfaces) {
+    const iFace = interfaces[devName];
+    for (let i = 0; i < iFace.length; i++) {
+      const alias = iFace[i];
+      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+        return alias.address;
+      }
+    }
+  }
+}
 
 module.exports = ({ name = null } = {}) => {
-  const app = getApp(name, { env: "dev" });
+  const app = getApp(name, { env: 'dev' });
 
-  !app && errorEdit("缺少当前应用的配置");
+  !app && errorEdit('缺少当前应用的配置');
 
-  const { host = "0.0.0.0", port = 3001 } = app;
+  const { host = '0.0.0.0', port = 3001 } = app;
 
   // 开发模式禁用外链
   app.externals = {};
 
-  return require("./webpack/core")(
+  return require('./webpack/core')(
     {
       ...app,
       isDev: true,
@@ -26,7 +39,7 @@ module.exports = ({ name = null } = {}) => {
       devServer: {
         contentBase: app.buildPath,
         hot: true,
-        host,
+        host: host || '0.0.0.0',
         disableHostCheck: true,
         open: true,
         index: `index.html`,
@@ -44,13 +57,13 @@ module.exports = ({ name = null } = {}) => {
           warnings: false,
           errors: true,
         },
-        clientLogLevel: "warning",
-        stats: "errors-only",
+        clientLogLevel: 'warning',
+        stats: 'errors-only',
         https: app.https || false,
         proxy: app.proxy,
         // mock api
         before: app => {
-          const apiPath = join(process.cwd(), "api");
+          const apiPath = join(process.cwd(), 'api');
 
           existsSync(apiPath) && apiMocker(app, apiPath);
         },
@@ -64,10 +77,10 @@ module.exports = ({ name = null } = {}) => {
       plugins: [
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: [`Project start at http://${host}:${port}/\n`],
+            messages: [`Project start at \n ${chalk.green(` > http://127.0.0.1:${port}/`)}\n ${chalk.green(` > http://${getIPAddress()}:${port}/`)}\n`],
           },
 
-          onErrors: function(severity, errors) {
+          onErrors: function (severity, errors) {
             // You can listen to errors transformed and prioritized by the plugin
             // severity can be 'error' or 'warning'
             console.error(chalk.red(errors.toString()));

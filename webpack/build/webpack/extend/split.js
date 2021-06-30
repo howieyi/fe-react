@@ -9,15 +9,11 @@ module.exports = ({ isUmd = false, splitPackages = [] }, webpackConfig) => {
 
   const chunkCacheGroups = {
     vendors: {
-      name: "common",
-      chunks: "all",
+      name: 'common',
+      chunks: 'all',
       priority: 1,
       test({ context }) {
-        if (
-          splitPackages &&
-          splitPackages.length &&
-          /[\\/]node_modules[\\/]([a-zA-Z_-]*)[\\/]/.test(context)
-        ) {
+        if (splitPackages && splitPackages.length && /[\\/]node_modules[\\/]([a-zA-Z_-]*)[\\/]/.test(context)) {
           const pac = RegExp.$1;
 
           return splitPackages.indexOf(pac) === -1;
@@ -29,12 +25,12 @@ module.exports = ({ isUmd = false, splitPackages = [] }, webpackConfig) => {
   };
 
   splitPackages &&
-    splitPackages.map((key) => {
+    splitPackages.map(key => {
       chunkCacheGroups[key] = {
         name: key,
         priority: 1,
         test: `/[\\/]node_modules[\\/]${key}[\\/]/ig`,
-        chunks: "all",
+        chunks: 'all',
       };
     });
 
@@ -43,12 +39,12 @@ module.exports = ({ isUmd = false, splitPackages = [] }, webpackConfig) => {
     : {
         ...webpackConfig.optimization,
         splitChunks: {
-          automaticNameDelimiter: ".",
-          chunks: "all",
+          automaticNameDelimiter: '.',
+          chunks: 'async',
           cacheGroups: chunkCacheGroups,
         },
         runtimeChunk: {
-          name: "common",
+          name: 'common',
         },
       };
 };

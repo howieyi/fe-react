@@ -1,5 +1,5 @@
-require("./index.scss");
-require("./assets/images/favicon.ico");
+import './index.less';
+import '@/assets/images/favicon.ico';
 
 import React from "react";
 import { render } from "react-dom";

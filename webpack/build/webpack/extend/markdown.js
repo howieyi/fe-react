@@ -10,9 +10,9 @@ module.exports = (markdown, { module }) => {
   module.rules.push({
     test: /\.md$/,
     use: [
-      { loader: "html-loader" },
+      { loader: 'html-loader' },
       {
-        loader: "markdown-loader",
+        loader: 'markdown-loader',
         options: {},
       },
     ],

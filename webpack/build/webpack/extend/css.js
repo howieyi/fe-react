@@ -1,56 +1,42 @@
-const { join } = require("path");
-const { excludeFile } = require("../../../utils/ignore");
+const { join } = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-module.exports = (
-  { isDev = false, isUmd = false, css = ["sass"], vue = null },
-  { module }
-) => {
-  // common loader
-  const cssLoaders = [
-    isDev || isUmd ? "style-loader" : MiniCssExtractPlugin.loader,
+module.exports = ({ isDev = false, isUmd = false }, { module }) => {
+  // 默认支持 less
+  module.rules.push(
     {
-      loader: "css-loader",
-      options: {
-        sourceMap: isDev,
-        modules: false,
-        importLoaders: 1,
-      },
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
     },
     {
-      loader: "postcss-loader",
-      options: {
-        sourceMap: isDev,
-        config: {
-          path: join(__dirname, "../../../config/"),
-        },
-      },
-    },
-  ];
-
-  vue && cssLoaders.unshift("vue-style-loader");
-
-  // module.rules.push({
-  //   test: /\.css$/,
-  //   use: ["style-loader", "css-loader"],
-  // });
-
-  css.includes("sass") &&
-    module.rules.push({
-      test: /\.(sc|sa|c)ss$/,
-      use: [...cssLoaders, "sass-loader"],
-      // exclude: excludeFile,
-    });
-
-  css.includes("less") &&
-    module.rules.push({
       test: /\.less$/,
       use: [
-        ...cssLoaders,
+        isDev || isUmd ? 'style-loader' : MiniCssExtractPlugin.loader,
         {
-          loader: "less-loader",
+          loader: 'css-loader',
+          options: {
+            sourceMap: isDev,
+            modules: false,
+            importLoaders: 1,
+          },
+        },
+        {
+          loader: 'less-loader',
+          options: {
+            sourceMap: isDev,
+            webpackImporter: true,
+          },
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: isDev,
+            postcssOptions: {
+              plugins: ['postcss-preset-env', 'cssnano', 'autoprefixer'],
+            },
+          },
         },
       ],
-    });
+    }
+  );
 };

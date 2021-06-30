@@ -9,12 +9,13 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
-    "xhr": "^2.5.0"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
+    "xhr": "^2.6.0"
   },
   "devDependencies": {
+    "@babel/runtime-corejs3": "^7.14.7"
   },
   "sideEffects": false
 }
