@@ -42,6 +42,7 @@ module.exports = (
     publicPath = '/',
     copyPath = 'src/public',
     markdown = false, // 是否支持 markdown 解析 html
+    px2remUedWidth = null,
     splitPackages = [],
     getPlugins = null,
   },
@@ -149,7 +150,7 @@ module.exports = (
   }
 
   // 加载 css 预编译相关配置
-  useCss({ isDev, isUmd }, baseConfig);
+  useCss({ isDev, isUmd, px2remUedWidth }, baseConfig);
 
   // 加载 markdown 配置
   useMarkdown(markdown, baseConfig);
