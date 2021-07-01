@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com:howieyi/water.git"
+    "url": "git+https://github.com:howieyi/water-react.git"
   },
   "bugs": {
-    "url": "https://github.com/howieyi/water/issues"
+    "url": "https://github.com/howieyi/water-react/issues"
   },
-  "homepage": "https://github.com/howieyi/water",
+  "homepage": "https://github.com/howieyi/water-react",
   "author": "水逆",
   "license": "MIT",
   "dependencies": {
