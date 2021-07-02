@@ -6,7 +6,7 @@
       "@/*": ["src/*"]
     },
     "target": "esnext",
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "types": ["react", "react-dom", "react-router-dom", "node"],
     "allowJs": true,
     "module": "esnext",
