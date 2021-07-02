@@ -5,8 +5,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "target": "es5",
-    "lib": ["es2015", "es2017", "esnext", "dom"],
+    "target": "esnext",
+    "lib": ["esnext"],
     "types": ["react", "react-dom", "react-router-dom", "node"],
     "allowJs": true,
     "module": "esnext",
