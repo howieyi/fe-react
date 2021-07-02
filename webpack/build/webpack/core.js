@@ -42,7 +42,6 @@ module.exports = (
     publicPath = '/',
     copyPath = 'src/public',
     markdown = false, // 是否支持 markdown 解析 html
-    px2remUedWidth = null,
     splitPackages = [],
     getPlugins = null,
   },
@@ -143,14 +142,14 @@ module.exports = (
         new StyleLintPlugin({
           context: target,
           configFile: join(__dirname, '../../config/.stylelintrc'),
-          files: ['**/*.{html,css,less}'],
+          files: ['**/*.{html,css,scss,sass}'],
         }),
       ]
     );
   }
 
   // 加载 css 预编译相关配置
-  useCss({ isDev, isUmd, px2remUedWidth }, baseConfig);
+  useCss({ isDev, isUmd }, baseConfig);
 
   // 加载 markdown 配置
   useMarkdown(markdown, baseConfig);
