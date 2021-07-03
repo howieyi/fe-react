@@ -22,7 +22,7 @@
     "url": "https://github.com/howieyi/water-react/issues"
   },
   "homepage": "https://github.com/howieyi/water-react",
-  "author": "水逆",
+  "author": "水逆<huyi247767221@163.com>",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.14.6",
