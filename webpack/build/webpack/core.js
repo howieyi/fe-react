@@ -15,12 +15,10 @@ const useSplit = require('./extend/split');
 
 // 获取 loader 包地址
 // 本地 npm link 按照相对目录检索
-// 本地项目 npm i @stjk-fe/cli 无需映射
 const getLoaderModulesPath = () => {
   const loaderPath = join(__dirname, '../../../node_modules');
 
-  // 部分本地环境 node_modules/@stjk-fe/cli 依赖下存在 node_modules
-  // 故需要判断 @stjk-fe/cli 是否存在于当前项目下
+  // 故需要判断 cli 是否存在于当前项目下
   const projectPath = process.cwd();
   if (existsSync(loaderPath) && loaderPath.indexOf(projectPath) === -1) {
     return {
