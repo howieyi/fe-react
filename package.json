@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/howieyi/water-react/issues"
   },
+  "publishConfig": {
+    "registry":"https://registry.npmjs.org/"
+  },
   "homepage": "https://github.com/howieyi/water-react",
   "author": "水逆<huyi247767221@163.com>",
   "license": "MIT",
