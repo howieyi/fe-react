@@ -1,7 +1,7 @@
 {
   "name": "iwr",
-  "version": "1.0.1",
-  "description": "基于 react 的 cli 脚手架构建工具",
+  "version": "1.0.3",
+  "description": "专注于 react 项目的快捷初始化与构建的工具",
   "keywords": [
     "webpack",
     "react",
