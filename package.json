@@ -1,6 +1,6 @@
 {
   "name": "iwr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于 react 的 cli 脚手架构建工具",
   "keywords": [
     "webpack",
