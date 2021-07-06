@@ -34,7 +34,7 @@ prompt([
     type: 'input',
     name: 'author',
     message: '作者：',
-    default: '1.0.0',
+    default: 'iwr',
   },
   {
     type: 'input',

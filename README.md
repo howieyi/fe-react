@@ -9,7 +9,7 @@
 # 全局安装命令行工具
 $ npm i -g iwr
 
-# 文件权限不够时可能会安装移除，使用以下命令即可
+# 文件权限不够时可能会安装异常，使用以下命令即可
 $ sudo npm install -g --production --unsafe-perm=true --allow-root iwr
 ```
 

@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = ({ isDev = false, isUmd = false }, config) => {
-  const lessLoaders = [
+  const scssLoaders = [
     isDev || isUmd ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
@@ -28,9 +28,9 @@ module.exports = ({ isDev = false, isUmd = false }, config) => {
     },
   ];
 
-  // 默认支持 less
+  // 默认支持 scss
   config.module.rules.push({
     test: /\.(sass|scss|css)$/,
-    use: lessLoaders,
+    use: scssLoaders,
   });
 };

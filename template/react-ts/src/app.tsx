@@ -1,4 +1,4 @@
-import './index.less';
+import './index.scss';
 import '@/assets/images/favicon.ico';
 
 import React from "react";

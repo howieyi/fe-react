@@ -76,7 +76,7 @@ module.exports = (
     externals,
 
     resolve: {
-      extensions: ['.js', '.json', '.ts', '.tsx', '.less', '.jsx'],
+      extensions: ['.js', '.json', '.ts', '.tsx', '.scss', '.jsx'],
       alias: {
         '@': join(process.cwd(), resolvePath),
       },
