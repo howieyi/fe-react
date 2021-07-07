@@ -1,6 +1,6 @@
 {
   "name": "iwr",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "专注于 react 项目的快捷初始化与构建的工具",
   "keywords": [
     "webpack",

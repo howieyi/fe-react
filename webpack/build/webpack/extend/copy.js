@@ -16,8 +16,6 @@ module.exports = (copyPath, webpackConfig) => {
           {
             from: _copyPath,
             to: '.',
-            cacheTransform: true,
-            flatten: false, // 文件是否平铺到最外层
             force: true,
           },
         ],
