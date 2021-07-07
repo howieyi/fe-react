@@ -17,7 +17,8 @@ if (!appConfig) {
 }
 
 const webpack = require("webpack");
-const isInfo = program.info;
+const args = program.opts() || { info: false };
+const isInfo = args?.info;
 
 webpackConfig = require(`../webpack/build/webpack.umd.js`)({
   ...appConfig,

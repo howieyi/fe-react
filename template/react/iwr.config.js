@@ -20,7 +20,6 @@ uriPrefix.forEach(uri => {
 
 module.exports = {
   port: '{iwr-port}',
-  analyzerPort: null,
   resolvePath: 'src',
   target: './src',
   publicPath: '/',
