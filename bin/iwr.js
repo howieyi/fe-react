@@ -15,20 +15,18 @@ program
     `  
   water create
   water dev
-  water prod -i -m [module] -e [env]
+  water prod -i -a [analyzerPort]
   water umd -i`
   )
   .description(
     `Params:
   
   dev:
-    -m [module] 模块名称
     -i 是否打印详细信息
   
   prod: 
-    -m [module] 模块名称
     -i 是否打印详细信息
-    -e [env] 环境变量
+    -a [analyzerPort] 是否开启代码依赖分析（默认端口8989）
 
   umd:
     -i 是否打印详细信息  
