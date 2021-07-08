@@ -1,6 +1,6 @@
 {
   "name": "iwr",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "专注于 react 项目的快捷初始化与构建的工具",
   "keywords": [
     "webpack",
@@ -22,10 +22,10 @@
     "url": "https://github.com/howieyi/water-react/issues"
   },
   "publishConfig": {
-    "registry":"https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/"
   },
   "homepage": "https://github.com/howieyi/water-react",
-  "author": "水逆<huyi247767221@163.com>",
+  "author": "水逆",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.14.6",
