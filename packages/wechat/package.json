@@ -1,0 +1,23 @@
+{
+  "name": "@iosecret/wechat",
+  "version": "1.0.1",
+  "description": "微信常用场景工具方法",
+  "keywords": [
+    "wechat"
+  ],
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build:esm",
+    "build:esm": "tsc --project tsconfig.json --outDir dist/esm/ --module ES2015",
+    "build:cjs": "tsc --project tsconfig.json --outDir dist/cjs/ --module CommonJS"
+  },
+  "author": "水逆",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  }
+}
