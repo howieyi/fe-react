@@ -23,26 +23,24 @@ $ iwr
 - 控制台正常输出
 ```bash
 → iwr                                                                                                    [721a6b4]
-Usage: iwr   
+Usage: iwr
   water create
   water dev
-  water prod -i -m [module] -e [env]
+  water prod -i -a [analyzerPort]
   water umd -i
 
 Params:
-  
+
   dev:
-    -m [module] 模块名称
     -i 是否打印详细信息
-  
-  prod: 
-    -m [module] 模块名称
+
+  prod:
     -i 是否打印详细信息
-    -e [env] 环境变量
+    -a [analyzerPort] 是否开启代码依赖分析（默认端口8989）
 
   umd:
-    -i 是否打印详细信息  
-    
+    -i 是否打印详细信息
+
 
 Options:
   -V, --version   output the version number
@@ -77,7 +75,7 @@ $ iwr dev
 $ iwr prod
 
 # 生产环境构建，并开启包分析 默认端口8989
-$ iwr prod -a 
+$ iwr prod -a
 # 自定义包分析端口
 $ iwr prod -a 9999
 ```
