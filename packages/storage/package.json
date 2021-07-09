@@ -1,0 +1,37 @@
+{
+  "name": "@iosecret/storage",
+  "version": "1.0.0",
+  "description": "web 缓存工具函数",
+  "keywords": [
+    "storage"
+  ],
+  "author": "水逆",
+  "homepage": "https://github.com/howieyi/water-react/tree/main/packages/storage",
+  "license": "ISC",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build:esm",
+    "build:esm": "../../node_modules/.bin/tsc --project tsconfig.json --outDir dist/esm/ --module ES2015",
+    "build:cjs": "../../node_modules/.bin/tsc --project tsconfig.json --outDir dist/cjs/ --module CommonJS"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howieyi/water-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/howieyi/water-react/issues"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
+  }
+}
