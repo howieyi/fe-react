@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/wechat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "微信常用场景工具方法",
   "keywords": [
     "wechat"
@@ -12,6 +12,9 @@
     "prepublishOnly": "npm run clean && npm run build:esm",
     "build:esm": "tsc --project tsconfig.json --outDir dist/esm/ --module ES2015",
     "build:cjs": "tsc --project tsconfig.json --outDir dist/cjs/ --module CommonJS"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "author": "水逆",
   "license": "ISC",
