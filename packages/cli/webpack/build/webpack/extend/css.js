@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = ({ isDev = false, isUmd = false }, config) => {
-  const scssLoaders = [
+  const cssLoaders = [
     isDev || isUmd ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
@@ -11,26 +11,44 @@ module.exports = ({ isDev = false, isUmd = false }, config) => {
         importLoaders: 1,
       },
     },
-    {
-      loader: 'sass-loader',
-      options: {
-        sourceMap: isDev,
-      },
-    },
-    {
-      loader: 'postcss-loader',
-      options: {
-        sourceMap: isDev,
-        postcssOptions: {
-          plugins: ['postcss-preset-env', 'cssnano', 'autoprefixer'],
-        },
-      },
-    },
   ];
 
   // 默认支持 scss
   config.module.rules.push({
     test: /\.(sass|scss|css)$/,
-    use: scssLoaders,
+    use: [
+      ...cssLoaders,
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: isDev,
+        },
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          sourceMap: isDev,
+          postcssOptions: {
+            plugins: ['postcss-preset-env', 'cssnano', 'autoprefixer'],
+          },
+        },
+      },
+    ],
+  });
+
+  config.module.rules.push({
+    test: /\.less$/,
+    use: [
+      ...cssLoaders,
+      {
+        loader: 'less-loader',
+        options: {
+          sourceMap: isDev,
+          lessOptions: {
+            javascriptEnabled: true,
+          },
+        },
+      },
+    ],
   });
 };
