@@ -7,33 +7,6 @@
 module.exports = ({ isUmd = false, splitPackages = [] }, webpackConfig) => {
   if (isUmd) return;
 
-  const chunkCacheGroups = {
-    vendors: {
-      name: 'common',
-      chunks: 'all',
-      priority: 1,
-      test({ context }) {
-        if (splitPackages && splitPackages.length && /[\\/]node_modules[\\/]([a-zA-Z_-]*)[\\/]/.test(context)) {
-          const pac = RegExp.$1;
-
-          return splitPackages.indexOf(pac) === -1;
-        }
-
-        return false;
-      },
-    },
-  };
-
-  splitPackages &&
-    splitPackages.map(key => {
-      chunkCacheGroups[key] = {
-        name: key,
-        priority: 1,
-        test: `/[\\/]node_modules[\\/]${key}[\\/]/ig`,
-        chunks: 'all',
-      };
-    });
-
   webpackConfig.optimization = isUmd
     ? { ...webpackConfig.optimization, minimize: false }
     : {
@@ -41,7 +14,15 @@ module.exports = ({ isUmd = false, splitPackages = [] }, webpackConfig) => {
         splitChunks: {
           automaticNameDelimiter: '.',
           chunks: 'async',
-          cacheGroups: chunkCacheGroups,
+          cacheGroups: {
+            vendors: {
+              name: 'common',
+              // chunks: 'all',
+              // test: /[\\/]node_modules[\\/]/,
+              priority: 1,
+              reuseExistingChunk: true,
+            },
+          },
         },
         runtimeChunk: {
           name: 'common',

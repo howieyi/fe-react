@@ -1,3 +1,8 @@
+## v1.0.7
+
+- 增加 `antd-mobile`/`antd` 按需加载；
+- 增加 `less` 的编译支持；
+
 ## v1.0.5
 
 - 模板配置文件移除 `analyzerPort` 属性配置；

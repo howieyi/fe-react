@@ -15,6 +15,16 @@
       {
         "loose": false
       }
-    ]
+    ],
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": true
+    }, "antd"],
+    ["import", {
+      "libraryName": "antd-mobile",
+      "libraryDirectory": "lib",
+      "style": true
+    }, "antd-mobile"]
   ]
 }
