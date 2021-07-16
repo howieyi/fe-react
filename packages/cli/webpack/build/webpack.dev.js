@@ -3,7 +3,7 @@ const { join } = require('path');
 const { existsSync } = require('fs');
 
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const apiMocker = require('webpack-api-mocker');
+const apiMocker = require('mocker-api');
 
 const { getApp, errorEdit } = require('../utils/getConfig');
 

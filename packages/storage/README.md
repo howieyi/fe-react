@@ -5,7 +5,15 @@
 ## Usage
 
 ```typescript
-import { getLocal, setLocal, getSession, setSession } from '@iosecret/storage';
+import { getLocal, setLocal, removeLocal, getSession, setSession, removeLocal } from '@iosecret/storage';
 
-// TODO anything
+// localStorage 操作
+setLocal(key, value);
+getLocal(key);
+removeLocal(key);
+
+// sessionStorage 操作
+setSession(key, value);
+getSession(key);
+removeSession(key);
 ```

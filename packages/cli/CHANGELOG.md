@@ -1,3 +1,7 @@
+## v1.0.8
+- `webpack-api-mocker` 升级为 `mocker-api`;
+- 升级 `postcss-loader`;
+
 ## v1.0.7
 
 - 增加 `antd-mobile`/`antd` 按需加载；
