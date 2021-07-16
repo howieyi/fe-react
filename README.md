@@ -1,9 +1,14 @@
-# water-react
+# fe-react
 
-- 基于 `webpack5`
-- 专注于 `react` 项目的初始化和构建的工具，基于模板快速生成新项目，并快速进入开发
+- 基于 `webpack5` 构建；
+- 专注于 `react` 项目的初始化和构建的工具，基于模板快速生成新项目，并快速进入开发；
+- 为了更方便赚外快，哈哈哈
 
-## 安装
+## [cli](./packages/cli/README.md)
+
+> 提供统一构建服务，初始化脚手架服务
+
+### 安装
 
 ```bash
 # 全局安装命令行工具
@@ -13,7 +18,7 @@ $ npm i -g iwr
 $ sudo npm install -g --production --unsafe-perm=true --allow-root iwr
 ```
 
-## 检测安装状态
+### 检测安装状态
 - 控制台输入命令
 
 ```bash
@@ -54,7 +59,7 @@ Commands:
   help [command]  display help for command
 ```
 
-## 命令说明
+### 命令说明
 - 初始化项目命令
 
 ```bash
@@ -79,3 +84,33 @@ $ iwr prod -a
 # 自定义包分析端口
 $ iwr prod -a 9999
 ```
+
+## [storage](./packages/storage/README.md)
+
+> 提供本地 storage 统一操作，内部做了针对对象数据的解析与设置
+
+### 安装
+
+```bash
+$ npm i @iosecret/storage
+```
+
+### 使用
+
+```typescript
+import { setLocal, getLocal, removeLocal, setSession, getSession, getSession } from '@iosecret/storage';
+
+// localStorage 操作
+setLocal(key, value);
+getLocal(key);
+removeLocal(key);
+
+// sessionStorage 操作
+setSession(key, value);
+getSession(key);
+removeSession(key);
+```
+
+## [wechat](./packages/wechat/README.md)
+
+> 主要针对微信生态定制开发
