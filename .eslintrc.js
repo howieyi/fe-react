@@ -10,5 +10,7 @@ module.exports = {
     ecmaVersion: 12,
     project: './tsconfig.eslint.json',
   },
-  rules: {},
+  rules: {
+    'react/no-children-prop': 'off',
+  },
 };
