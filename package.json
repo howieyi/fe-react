@@ -1,15 +1,38 @@
 {
-  "name": "root",
+  "name": "fe-react",
   "private": true,
+  "description": "react 快速开发生态",
   "scripts": {
+    "prepare": "husky install",
     "publish": "lerna publish from-package --skip-git",
     "build:storage": "lerna workspace storage build:esm"
   },
   "workspaces": [
     "packages/*"
   ],
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add ."
+    ]
+  },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.1",
     "lerna": "^4.0.0",
+    "lint-staged": "^11.0.1",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
