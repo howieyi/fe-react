@@ -1,8 +1,13 @@
 # fe-react
+>
+> - 基于 `webpack5` 构建；
+> - 专注于 `react` 项目的初始化和构建的工具，基于模板快速生成新项目，并快速进入开发；
+> - 为了更方便赚外快，哈哈哈
+>
 
-- 基于 `webpack5` 构建；
-- 专注于 `react` 项目的初始化和构建的工具，基于模板快速生成新项目，并快速进入开发；
-- 为了更方便赚外快，哈哈哈
+- [`cli` 命令行工具](#cli)：基于 react 的构建工具
+- [`@iosecret/storage` 缓存处理](#storage)：对于 storage 的统一处理
+- [`@iosecret/wechat` 微信生态开发](#wechat)：对于微信生态开发的统一处理
 
 ## [cli](./packages/cli/README.md)
 
