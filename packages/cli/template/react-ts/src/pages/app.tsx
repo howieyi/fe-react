@@ -8,8 +8,8 @@ export default function App() {
   return (
     <Suspense fallback={null}>
       <Switch>
-        <Route path='/' children={<Index />} exact />
-        <Route path='/private' children={<Other />} />
+        <Route path="/" children={<Index />} exact />
+        <Route path="/private" children={<Other />} />
       </Switch>
     </Suspense>
   );

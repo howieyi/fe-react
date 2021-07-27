@@ -114,3 +114,18 @@ removeSession(key);
 ## [wechat](./packages/wechat/README.md)
 
 > 主要针对微信生态定制开发
+
+- 使用
+
+```typescript
+import { webpageLogin, isWeChatBrowser, getQueryParam } from '@iosecret/wechat';
+
+// 1. 校验是否在微信浏览器中
+const isInWeChat = isWeChatBrowser();
+
+// 2. 获取 url 中某个参数
+const code = getQueryParam('code', window.location.search);
+
+// 3. 微信网页授权
+const code = webpageLogin('appId', true /* 是否静默登录*/ , '重定向地址');
+```
