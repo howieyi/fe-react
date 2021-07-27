@@ -7,6 +7,7 @@
     "react",
     "cli"
   ],
+  "private": false,
   "bin": {
     "iwr": "bin/iwr.js",
     "iwr-create": "bin/iwr-create.js",

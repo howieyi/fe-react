@@ -5,6 +5,7 @@
   "keywords": [
     "storage"
   ],
+  "private": false,
   "author": "水逆",
   "homepage": "https://github.com/howieyi/water-react/tree/main/packages/storage",
   "license": "ISC",
@@ -24,7 +25,8 @@
     "test": "__tests__"
   },
   "files": [
-    "lib", "dist"
+    "lib",
+    "dist"
   ],
   "bugs": {
     "url": "https://github.com/howieyi/water-react/issues"
