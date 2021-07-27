@@ -5,7 +5,9 @@
   "scripts": {
     "prepare": "husky install",
     "publish": "lerna publish from-package --skip-git",
-    "build:storage": "lerna workspace storage build:esm"
+    "link:iwr": "yarn workspace iwr link",
+    "build:storage": "yarn workspace @iosecret/storage build:esm",
+    "build:wechat": "yarn workspace @iosecret/wechat build:esm"
   },
   "workspaces": [
     "packages/*"
