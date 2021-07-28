@@ -1,3 +1,7 @@
+## v1.0.11
+
+- 修复 `resolveLoader` 路径问题
+
 ## v1.0.9
 
 - 移除 `stylelint`

@@ -15,18 +15,24 @@ const useSplit = require('./extend/split');
 // 获取 loader 包地址
 // 本地 npm link 按照相对目录检索
 const getLoaderModulesPath = () => {
-  const loaderPath = join(__dirname, '../../../node_modules');
-
   // 故需要判断 cli 是否存在于当前项目下
   const projectPath = process.cwd();
-  if (existsSync(loaderPath) && loaderPath.indexOf(projectPath) === -1) {
-    return {
-      // loader 包解析路径配置
-      modules: [loaderPath],
-    };
-  }
+  const loaderPath = join(__dirname, '../../../node_modules');
+  const loaderLernaPath = join(__dirname, '../../../../../node_modules');
+  const localPath = join(projectPath, 'node_modules');
 
-  return null;
+  const paths = [];
+
+  // project node_modules
+  existsSync(localPath) && paths.push(localPath);
+
+  // cli node_modules
+  existsSync(loaderPath) && paths.push(loaderPath);
+
+  // lerna 下 node_modules
+  existsSync(loaderLernaPath) && paths.push(loaderLernaPath);
+
+  return paths.length ? { modules: paths } : null;
 };
 
 module.exports = (
@@ -137,20 +143,7 @@ module.exports = (
   if (isDev) {
     // tree shaking
     baseConfig.optimization = { ...baseConfig.optimization, usedExports: true };
-
-    baseConfig.plugins.push(
-      ...[
-        // 进度条
-        new webpack.ProgressPlugin(),
-
-        // 开发环境样式校验规则
-        // new StyleLintPlugin({
-        //   context: target,
-        //   configFile: join(__dirname, '../../config/.stylelintrc'),
-        //   files: ['**/*.{html,css,scss,sass}'],
-        // }),
-      ],
-    );
+    baseConfig.plugins.push(new webpack.ProgressPlugin());
   }
 
   // 加载 css 预编译相关配置
