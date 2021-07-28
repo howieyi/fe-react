@@ -1,10 +1,10 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
-const TerserWebpackPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const webpackConfig = require('./webpack/core');
 
-module.exports = (app) => {
-  const baseConfig = require("./webpack/core")(
+module.exports = app => {
+  const baseConfig = webpackConfig(
     {
       isDev: false,
       isUmd: true,
@@ -14,10 +14,10 @@ module.exports = (app) => {
       // 防止将某些 import 的包(package)打包到 bundle 中，而是在运行时(runtime)再去从外部获取这些扩展依赖
       externals: app.externals,
       output: {
-        libraryTarget: "umd",
+        libraryTarget: 'umd',
       },
       plugins: [new CleanWebpackPlugin()],
-    }
+    },
   );
 
   // 压缩
@@ -50,7 +50,7 @@ module.exports = (app) => {
     baseConfig.plugins.push(
       new BundleAnalyzerPlugin({
         analyzerPort: app.analyzerPort,
-      })
+      }),
     );
 
   return baseConfig;

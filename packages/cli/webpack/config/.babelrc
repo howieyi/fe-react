@@ -1,5 +1,9 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-typescript", "@babel/preset-react"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+  ],
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-runtime",
@@ -16,15 +20,22 @@
         "loose": false
       }
     ],
-    ["import", {
-      "libraryName": "antd",
-      "libraryDirectory": "es",
-      "style": true
-    }, "antd"],
-    ["import", {
-      "libraryName": "antd-mobile",
-      "libraryDirectory": "lib",
-      "style": true
-    }, "antd-mobile"]
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": true
+      },
+      "antd"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "lib",
+        "style": true
+      }
+    ]
   ]
 }

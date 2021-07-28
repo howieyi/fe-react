@@ -16,16 +16,15 @@ module.exports = ({ isUmd = false }, webpackConfig) => {
           chunks: 'async',
           cacheGroups: {
             vendors: {
-              name: 'common',
-              // chunks: 'all',
-              // test: /[\\/]node_modules[\\/]/,
+              name: 'vendor',
+              test: /[\\/]node_modules[\\/]/,
               priority: 1,
               reuseExistingChunk: true,
             },
           },
         },
         runtimeChunk: {
-          name: 'common',
+          name: 'vendor',
         },
       };
 };

@@ -16,6 +16,7 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'guard-for-in': 'off',
     'no-plusplus': 'off',
+    'no-continue': 'off',
     'no-param-reassign': 'off',
     '@typescript-eslint/dot-notation': 'off',
     '@typescript-eslint/no-unused-expressions': 'off',

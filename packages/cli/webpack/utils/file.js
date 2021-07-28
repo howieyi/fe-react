@@ -1,13 +1,28 @@
-const { readdirSync, readFile, writeFile, createReadStream, createWriteStream, existsSync, mkdirSync } = require('fs');
+const {
+  readdirSync,
+  readFile,
+  writeFile,
+  createReadStream,
+  createWriteStream,
+  existsSync,
+  mkdirSync,
+} = require('fs');
 const { join } = require('path');
 
 // 忽略文件
-const ignoreFiles = ['node_modules', '.DS_Store', 'dist', 'yarn.lock', 'package-lock.json'];
+const ignoreFiles = [
+  'node_modules',
+  '.DS_Store',
+  'dist',
+  'yarn.lock',
+  'package-lock.json',
+];
 // 需要替换模板文字的文件
 const replaceFiles = ['iwr.config.js', 'package.json'];
 
 const handleError = err => {
   if (err) return console.log(err);
+  return null;
 };
 
 /**
@@ -21,9 +36,10 @@ const handleError = err => {
 const replaceArgsFile = (fromFile, toFile, options) => {
   if (!options) return;
 
-  readFile(fromFile, 'utf8', function (err, data) {
+  readFile(fromFile, 'utf8', (err, data) => {
     if (err) {
-      return handleError(err);
+      handleError(err);
+      return;
     }
     const result = data
       .replace(/\{iwr-name\}/g, options.name)
@@ -50,7 +66,7 @@ const copyFolder = (fromPath, toPath, options) => {
 
   const files = readdirSync(fromPath, { withFileTypes: true });
 
-  for (let file of files) {
+  for (const file of files) {
     if (ignoreFiles.includes(file.name)) continue;
 
     const fromFilePath = join(fromPath, file.name);

@@ -4,7 +4,7 @@ const { excludeFile } = require('../../../utils/ignore');
 // es 延展
 module.exports = (arg, { module }) => {
   module.rules.push({
-    test: /\.(jsx|js|ts|tsx)?$/,
+    test: /\.(jsx|js|ts|tsx)$/,
     loader: 'babel-loader',
     exclude: excludeFile,
     options: {

@@ -83,7 +83,7 @@ module.exports = (
     externals,
 
     resolve: {
-      extensions: ['.js', '.json', '.ts', '.tsx', '.scss', '.jsx'],
+      extensions: ['.js', '.ts', '.tsx', '.jsx'],
       alias: {
         '@': join(process.cwd(), resolvePath),
       },
@@ -92,7 +92,7 @@ module.exports = (
     resolveLoader: {
       // loader 包解析路径配置
       ...getLoaderModulesPath(),
-      extensions: ['.js', '.ts', '.tsx', '.jsx', '.vue', '.json'],
+      extensions: ['.js', '.ts', '.tsx', '.jsx', '.json'],
     },
 
     // 模块配置入口

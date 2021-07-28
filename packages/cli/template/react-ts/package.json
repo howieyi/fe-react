@@ -15,7 +15,7 @@
     "xhr": "^2.6.0"
   },
   "devDependencies": {
-    "@babel/runtime-corejs3": "^7.14.7"
+    "iwr": "^1.0.11"
   },
   "sideEffects": false
 }
