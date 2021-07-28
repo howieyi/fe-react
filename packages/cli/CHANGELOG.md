@@ -1,4 +1,9 @@
+## v1.0.9
+
+- 移除 `stylelint`
+
 ## v1.0.8
+
 - `webpack-api-mocker` 升级为 `mocker-api`;
 - 升级 `postcss-loader`;
 

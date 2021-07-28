@@ -1,7 +1,6 @@
 const { join } = require('path');
 const { existsSync } = require('fs');
 const webpack = require('webpack');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const { excludeFile } = require('../../utils/ignore');
 const { getPackageInfo } = require('../../utils/getConfig');
@@ -49,12 +48,14 @@ module.exports = (
     devServer = {},
     externals = {}, // 禁用某些包引入bundle
     output = {},
-  }
+  },
 ) => {
   // 打包后 chunk 名称
   // contenthash 基于内容变动改变 hash
-  const _chunkName = isDev || isUmd ? '' : '[contenthash:5].';
-  const _entry = isUmd ? getUmdEntry({ target }) : getProjectEntry({ isDev, target, buildPath, splitPackages });
+  const chunkName = isDev || isUmd ? '' : '[contenthash:5].';
+  const entryGetter = isUmd
+    ? getUmdEntry({ target })
+    : getProjectEntry({ isDev, target, buildPath, splitPackages });
 
   // 修复部分组件依赖 NODE_ENV 环境变量问题
   process.env.NODE_ENV = isDev ? 'development' : 'production';
@@ -91,15 +92,21 @@ module.exports = (
     // 模块配置入口
     // string|Array<string>
     // {[entryChunkName: string]: string|Array<string>}
-    entry: _entry.entry,
+    entry: entryGetter.entry,
 
     // 模块输出配置
     output: {
       path: join(process.cwd(), buildPath),
-      publicPath: publicPath,
-      filename: isUmd ? '[name]/index.js' : `static/scripts/[name].${_chunkName}js`,
-      sourceMapFilename: isUmd ? '[name]/index.map' : `static/scripts/[name].${_chunkName}map`,
-      chunkFilename: isUmd ? '[name]/[name].js' : `static/scripts/[name].${_chunkName}js`,
+      publicPath,
+      filename: isUmd
+        ? '[name]/index.js'
+        : `static/scripts/[name].${chunkName}js`,
+      sourceMapFilename: isUmd
+        ? '[name]/index.map'
+        : `static/scripts/[name].${chunkName}map`,
+      chunkFilename: isUmd
+        ? '[name]/[name].js'
+        : `static/scripts/[name].${chunkName}js`,
       ...output,
     },
 
@@ -109,7 +116,7 @@ module.exports = (
           test: /\.(png|jpg|jpeg|gif|woff|woff2|ttf|eot|svg|ico)$/,
           loader: 'file-loader',
           options: {
-            name: `[name].[ext]${isDev ? '' : '?' + _chunkName}`,
+            name: `[name].[ext]${isDev ? '' : `?${chunkName}`}`,
             useRelativePath: false,
             outputPath: 'static/images',
           },
@@ -124,7 +131,7 @@ module.exports = (
       ],
     },
 
-    plugins: [..._entry.plugins, ...plugins],
+    plugins: [...entryGetter.plugins, ...plugins],
   };
 
   if (isDev) {
@@ -137,12 +144,12 @@ module.exports = (
         new webpack.ProgressPlugin(),
 
         // 开发环境样式校验规则
-        new StyleLintPlugin({
-          context: target,
-          configFile: join(__dirname, '../../config/.stylelintrc'),
-          files: ['**/*.{html,css,scss,sass}'],
-        }),
-      ]
+        // new StyleLintPlugin({
+        //   context: target,
+        //   configFile: join(__dirname, '../../config/.stylelintrc'),
+        //   files: ['**/*.{html,css,scss,sass}'],
+        // }),
+      ],
     );
   }
 
@@ -162,8 +169,11 @@ module.exports = (
   useES({}, baseConfig);
 
   // 加载外部 plugins
-  const _plugins = getPlugins ? getPlugins({ isDev, ...getPackageInfo() }) : null;
-  _plugins && _plugins.length && baseConfig.plugins.push(..._plugins);
+  const otherPlugins = getPlugins
+    ? getPlugins({ isDev, ...getPackageInfo() })
+    : null;
+
+  otherPlugins && baseConfig.plugins.push(...otherPlugins);
 
   return baseConfig;
 };

@@ -5,21 +5,21 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // 复制文件
 module.exports = (copyPath, webpackConfig) => {
-  const _copyPath = join(process.cwd(), copyPath);
+  const path = join(process.cwd(), copyPath);
 
   // 有文件可复制
-  if (existsSync(_copyPath) && sync(join(_copyPath), '*')) {
+  if (existsSync(path) && sync(join(path), '*')) {
     webpackConfig.plugins.push(
       // 转移公共文件
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: _copyPath,
+            from: path,
             to: '.',
             force: true,
           },
         ],
-      })
+      }),
     );
   }
 };

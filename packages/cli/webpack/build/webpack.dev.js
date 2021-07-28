@@ -1,23 +1,30 @@
 const chalk = require('chalk');
 const { join } = require('path');
 const { existsSync } = require('fs');
+const os = require('os');
 
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const apiMocker = require('mocker-api');
+const webpackCoreConfig = require('./webpack/core');
 
 const { getApp, errorEdit } = require('../utils/getConfig');
 
 function getIPAddress() {
-  const interfaces = require('os').networkInterfaces();
-  for (let devName in interfaces) {
+  const interfaces = os.networkInterfaces();
+  for (const devName in interfaces) {
     const iFace = interfaces[devName];
     for (let i = 0; i < iFace.length; i++) {
       const alias = iFace[i];
-      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+      if (
+        alias.family === 'IPv4' &&
+        alias.address !== '127.0.0.1' &&
+        !alias.internal
+      ) {
         return alias.address;
       }
     }
   }
+  return '';
 }
 
 module.exports = ({ name = null } = {}) => {
@@ -30,7 +37,7 @@ module.exports = ({ name = null } = {}) => {
   // 开发模式禁用外链
   app.externals = {};
 
-  return require('./webpack/core')(
+  return webpackCoreConfig(
     {
       ...app,
       isDev: true,
@@ -62,10 +69,9 @@ module.exports = ({ name = null } = {}) => {
         https: app.https || false,
         proxy: app.proxy,
         // mock api
-        before: app => {
+        before: serve => {
           const apiPath = join(process.cwd(), 'api');
-
-          existsSync(apiPath) && apiMocker(app, apiPath);
+          existsSync(apiPath) && apiMocker(serve, apiPath);
         },
         after: () => {
           console.log(chalk.yellow(`\n> 构建目录 ${app.buildPath}`));
@@ -77,10 +83,14 @@ module.exports = ({ name = null } = {}) => {
       plugins: [
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: [`Project start at \n ${chalk.green(` > http://127.0.0.1:${port}/`)}\n ${chalk.green(` > http://${getIPAddress()}:${port}/`)}\n`],
+            messages: [
+              `Project start at \n ${chalk.green(
+                ` > http://127.0.0.1:${port}/`,
+              )}\n ${chalk.green(` > http://${getIPAddress()}:${port}/`)}\n`,
+            ],
           },
 
-          onErrors: function (severity, errors) {
+          onErrors: (severity, errors) => {
             // You can listen to errors transformed and prioritized by the plugin
             // severity can be 'error' or 'warning'
             console.error(chalk.red(errors.toString()));
@@ -95,6 +105,6 @@ module.exports = ({ name = null } = {}) => {
           additionalTransformers: [],
         }),
       ],
-    }
+    },
   );
 };

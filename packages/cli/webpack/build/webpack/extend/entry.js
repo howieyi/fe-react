@@ -22,20 +22,17 @@ const queryModule = (path, pattern) => sync(resolve(path, pattern || '*'));
  * @param splitPackages 需要单独拆开的包
  * @returns {{entry: {}, plugins: []}}
  */
-const getProjectEntry = ({ isDev = true, target, buildPath, splitPackages = [] }) => {
-  const _entry = {};
-  const _entryHtmlPlugins = [];
+const getProjectEntry = ({ isDev = true, target, buildPath }) => {
+  const entry = {};
+  const entryHtmlPlugins = [];
 
-  const _entryFiles = queryModule(target, 'app.[jt]s*');
+  const entryFiles = queryModule(target, 'app.[jt]s*');
 
-  _entryFiles.map(file => {
+  entryFiles.forEach(file => {
     if (/.+\/([a-zA-Z-_]+)\/app\.[jt]sx?$/.test(file)) {
-      // const _entryKey = RegExp.$1;
-      const _entryKey = 'app';
+      entry['app'] = file;
 
-      _entry['app'] = file;
-
-      _entryHtmlPlugins.push(
+      entryHtmlPlugins.push(
         new HtmlWebpackPlugin({
           filename: resolve(buildPath, `index.html`),
           template: resolve(target, `index.html`),
@@ -51,14 +48,14 @@ const getProjectEntry = ({ isDev = true, target, buildPath, splitPackages = [] }
             // more options:
             // https://github.com/kangax/html-minifier#options-quick-reference
           },
-        })
+        }),
       );
     }
   });
 
   return {
-    entry: _entry,
-    plugins: _entryHtmlPlugins,
+    entry,
+    plugins: entryHtmlPlugins,
   };
 };
 
@@ -71,20 +68,18 @@ const getProjectEntry = ({ isDev = true, target, buildPath, splitPackages = [] }
  * @returns {{entry: {}}}
  */
 const getUmdEntry = ({ target }) => {
-  const _entry = {};
+  const entry = {};
 
-  const _entryFiles = queryModule(target, '**/index.[jt]s*');
+  const entryFiles = queryModule(target, '**/index.[jt]s*');
 
-  _entryFiles.map(file => {
+  entryFiles.forEach(file => {
     if (/.+\/([a-zA-Z-_]+)\/([a-zA-Z-_]+)\.[jt]sx?$/.test(file)) {
-      const _fileKey = RegExp.$1;
-      const _nameKey = RegExp.$2;
-
-      _entry[_fileKey] = file;
+      const fileKey = RegExp.$1;
+      entry[fileKey] = file;
     }
   });
 
-  return { entry: _entry, plugins: [] };
+  return { entry, plugins: [] };
 };
 
 module.exports = {

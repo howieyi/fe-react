@@ -2,7 +2,7 @@ const { join } = require('path');
 const { excludeFile } = require('../../../utils/ignore');
 
 // es 延展
-module.exports = ({}, { module }) => {
+module.exports = (arg, { module }) => {
   module.rules.push({
     test: /\.(jsx|js|ts|tsx)?$/,
     loader: 'babel-loader',

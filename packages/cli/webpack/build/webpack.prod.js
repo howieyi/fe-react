@@ -1,11 +1,12 @@
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
+const webpackConfig = require('./webpack/core');
 
 module.exports = app => {
-  const baseConfig = require('./webpack/core')(
+  const baseConfig = webpackConfig(
     {
       isDev: false,
       ...app,
@@ -22,7 +23,7 @@ module.exports = app => {
           chunkFilename: `static/styles/[name].[contenthash:5].css`,
         }),
       ],
-    }
+    },
   );
 
   // 压缩
@@ -54,7 +55,7 @@ module.exports = app => {
     baseConfig.plugins.push(
       new BundleAnalyzerPlugin({
         analyzerPort: app.analyzerPort,
-      })
+      }),
     );
 
   return baseConfig;

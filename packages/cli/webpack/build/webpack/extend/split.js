@@ -4,7 +4,7 @@
  * @param {*} {splitPackages} 单独拆分 chunk 包
  * @param {*} webpackConfig
  */
-module.exports = ({ isUmd = false, splitPackages = [] }, webpackConfig) => {
+module.exports = ({ isUmd = false }, webpackConfig) => {
   if (isUmd) return;
 
   webpackConfig.optimization = isUmd
