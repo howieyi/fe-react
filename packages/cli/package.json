@@ -1,6 +1,6 @@
 {
   "name": "iwr",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "专注于 react 项目的快捷初始化与构建的工具",
   "keywords": [
     "webpack",
@@ -62,6 +62,7 @@
     "mini-css-extract-plugin": "^1.6.2",
     "mocker-api": "^2.9.0",
     "node-sass": "^6.0.1",
+    "postcss": "^8.3.6",
     "postcss-loader": "^6.1.1",
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^12.1.0",
