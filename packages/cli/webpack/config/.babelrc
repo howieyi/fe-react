@@ -33,9 +33,17 @@
       "import",
       {
         "libraryName": "antd-mobile",
-        "libraryDirectory": "lib",
+        "libraryDirectory": "es",
         "style": true
-      }
+      },
+      "antd-mobile"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "lodash"
+      },
+      "lodash"
     ]
   ]
 }
