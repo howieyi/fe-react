@@ -9,11 +9,7 @@
   ],
   "private": false,
   "bin": {
-    "iwr": "bin/iwr.js",
-    "iwr-create": "bin/iwr-create.js",
-    "iwr-dev": "bin/iwr-dev.js",
-    "iwr-prod": "bin/iwr-prod.js",
-    "iwr-umd": "bin/iwr-umd.js"
+    "iwr": "bin/iwr.js"
   },
   "repository": {
     "type": "git",
@@ -66,6 +62,7 @@
     "postcss-loader": "^6.1.1",
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^12.1.0",
+    "shelljs": "^0.8.4",
     "style-loader": "^3.0.0",
     "terser-webpack-plugin": "^5.1.4",
     "typescript": "^4.3.4",

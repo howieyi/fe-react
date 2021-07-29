@@ -17,6 +17,7 @@ module.exports = {
     'guard-for-in': 'off',
     'no-plusplus': 'off',
     'no-continue': 'off',
+    'no-nested-ternary': 'off',
     'no-param-reassign': 'off',
     '@typescript-eslint/dot-notation': 'off',
     '@typescript-eslint/no-unused-expressions': 'off',
