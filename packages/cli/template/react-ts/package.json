@@ -15,6 +15,9 @@
     "xhr": "^2.6.0"
   },
   "devDependencies": {
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.1.8",
     "iwr": "^1.0.11"
   },
   "sideEffects": false

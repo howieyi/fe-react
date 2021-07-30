@@ -11,6 +11,9 @@ module.exports = {
     project: './tsconfig.eslint.json',
   },
   rules: {
+    'no-console': 'off',
+    'global-require': 'off',
+    'import/no-dynamic-require': 'off',
     'react/no-children-prop': 'off',
     'no-underscore-dangle': 'off',
     'no-restricted-syntax': 'off',

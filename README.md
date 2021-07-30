@@ -1,9 +1,8 @@
 # fe-react
->
+
 > - 基于 `webpack5` 构建；
 > - 专注于 `react` 项目的初始化和构建的工具，基于模板快速生成新项目，并快速进入开发；
 > - 为了更方便赚外快，哈哈哈
->
 
 - [`cli` 命令行工具](#cli)：基于 react 的构建工具
 - [`@iosecret/storage` 缓存处理](#storage)：对于 storage 的统一处理
@@ -24,6 +23,7 @@ $ sudo npm install -g --production --unsafe-perm=true --allow-root iwr
 ```
 
 ### 检测安装状态
+
 - 控制台输入命令
 
 ```bash
@@ -31,6 +31,7 @@ $ iwr
 ```
 
 - 控制台正常输出
+
 ```bash
 → iwr                                                                                                    [721a6b4]
 Usage: iwr
@@ -65,6 +66,7 @@ Commands:
 ```
 
 ### 命令说明
+
 - 初始化项目命令
 
 ```bash
@@ -90,6 +92,12 @@ $ iwr prod -a
 $ iwr prod -a 9999
 ```
 
+- 初始化 eslint/commitlint 规则
+
+```bash
+$ iwr rule
+```
+
 ## [storage](./packages/storage/README.md)
 
 > 提供本地 storage 统一操作，内部做了针对对象数据的解析与设置
@@ -103,7 +111,14 @@ $ npm i @iosecret/storage
 ### 使用
 
 ```typescript
-import { setLocal, getLocal, removeLocal, setSession, getSession, getSession } from '@iosecret/storage';
+import {
+  setLocal,
+  getLocal,
+  removeLocal,
+  setSession,
+  getSession,
+  getSession,
+} from '@iosecret/storage';
 
 // localStorage 操作
 setLocal(key, value);
@@ -132,5 +147,5 @@ const isInWeChat = isWeChatBrowser();
 const code = getQueryParam('code', window.location.search);
 
 // 3. 微信网页授权
-const code = webpageLogin('appId', true /* 是否静默登录*/ , '重定向地址');
+const code = webpageLogin('appId', true /* 是否静默登录*/, '重定向地址');
 ```

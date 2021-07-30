@@ -1,9 +1,9 @@
-const { green } = require('chalk');
+const ora = require('ora');
+const { red } = require('chalk');
 const { join } = require('path');
 const { prompt } = require('inquirer');
-const { exec } = require('child_process');
-
-const { copyFolder } = require('../webpack/utils/file');
+const { exec, echo } = require('shelljs');
+const { copyFolder } = require('../lib/utils/file');
 
 const developPath = process.cwd();
 const iwrPath = join(__dirname, '..');
@@ -58,29 +58,26 @@ const iwrCreate = program => {
           const templateName = `react${typescript ? '-ts' : ''}`;
           const templatePath = join(iwrPath, templatePathPrefix, templateName);
           const toPath = join(developPath, name);
+          const spinner = ora(`🌰 init project start \n`);
+          spinner.start();
 
           // 复制项目模板
           copyFolder(templatePath, toPath, options);
-          console.log(green('> 初始化完成'));
+          spinner.text = '🌰 init project end';
 
           // 执行 npm i 脚本
-          exec(`cd ${name} && npm i`, (err, stdout, stderr) => {
-            if (err || stderr) {
-              console.log(err, stderr);
-              process.exit(-1);
-            } else {
-              console.log(stdout);
-            }
+          // install dependencies
+          spinner.text = `🍉 install dependencies ... \n`;
+          exec(`cd ${name} && npm i`, code => {
+            spinner.text =
+              code !== 0 ? '💣 install failed' : '🇨🇳 install success';
+            setTimeout(() => {
+              spinner.stop();
+            }, 800);
           });
         })
         .catch(error => {
-          if (error.isTtyError) {
-            console.error('当前环境暂不支持');
-            // Prompt couldn't be rendered in the current environment
-          } else {
-            // Something else when wrong
-            console.error(error);
-          }
+          echo(error.isTtyError ? `${red('>')} 当前环境暂不支持` : error);
         });
     });
 };

@@ -1,3 +1,8 @@
+## v1.0.12
+
+- reset cli scripts；
+- add `iwr rule`；
+
 ## v1.0.11
 
 - 修复 `resolveLoader` 路径问题

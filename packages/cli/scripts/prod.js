@@ -1,8 +1,8 @@
-const webpackProdConfig = require(`../webpack/build/webpack.prod.js`);
+const webpackProdConfig = require(`../lib/build/webpack.prod.js`);
 const webpack = require('webpack');
 
 const { red } = require('chalk');
-const { getApp } = require('../webpack/utils/getConfig');
+const { getApp } = require('../lib/utils/getConfig');
 
 const iwrProd = program => {
   program

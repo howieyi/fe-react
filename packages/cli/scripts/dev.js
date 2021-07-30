@@ -2,8 +2,8 @@ const { red } = require('chalk');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
-const webpackDevConfig = require(`../webpack/build/webpack.dev.js`);
-const { getApp } = require('../webpack/utils/getConfig');
+const webpackDevConfig = require(`../lib/build/webpack.dev.js`);
+const { getApp } = require('../lib/utils/getConfig');
 
 const iwrDev = program => {
   program

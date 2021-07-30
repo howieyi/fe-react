@@ -1,21 +1,15 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const figlet = require('figlet');
-const lolcat = require('@darkobits/lolcatjs');
 const { version } = require('../package.json');
 
-const iwrDev = require('../scripts/iwr-dev');
-const iwrProd = require('../scripts/iwr-prod');
-const iwrUmd = require('../scripts/iwr-umd');
-const iwrCreate = require('../scripts/iwr-create');
-const iwrRule = require('../scripts/iwr-rule');
+const iwrDev = require('../scripts/dev');
+const iwrProd = require('../scripts/prod');
+const iwrUmd = require('../scripts/umd');
+const iwrCreate = require('../scripts/create');
+const iwrRule = require('../scripts/rule');
 
-// 渐变输出
-const toLolcat = text => {
-  const code = figlet.textSync(text);
-  return lolcat.default.fromString(code);
-};
+const { textToLolcat } = require('../lib/utils/tool');
 
 // 开发环境构建
 iwrDev(program);
@@ -33,24 +27,19 @@ iwrCreate(program);
 iwrRule(program);
 
 program
-  .version(toLolcat(`iwr ${version}`))
+  .version(textToLolcat(`iwr ${version}`))
   .usage(
-    `  
-  water create
-  water dev
-  water prod -i -a [analyzerPort]
-  water umd -i
-  water rule -o`,
+    `
+    ${textToLolcat(`iwr ${version}`)}`,
   )
   .description(
     `Params:
-  
   dev:
     -i 是否打印详细信息
   
   prod: 
     -i 是否打印详细信息
-    -a [analyzerPort] 是否开启代码依赖分析（默认端口8989）
+    -a <analyzerPort> 是否开启代码依赖分析（默认端口8989）
 
   umd:
     -i 是否打印详细信息

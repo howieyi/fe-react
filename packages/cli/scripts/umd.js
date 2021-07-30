@@ -1,8 +1,8 @@
 const { red } = require('chalk');
 const webpack = require('webpack');
 
-const webpackUmdConfig = require(`../webpack/build/webpack.umd.js`);
-const { getApp } = require('../webpack/utils/getConfig');
+const webpackUmdConfig = require(`../lib/build/webpack.umd.js`);
+const { getApp } = require('../lib/utils/getConfig');
 
 const iwrUmd = program => {
   program
