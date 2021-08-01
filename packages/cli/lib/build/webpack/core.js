@@ -20,11 +20,15 @@ const getLoaderModulesPath = () => {
   const loaderPath = join(__dirname, '../../../node_modules');
   const loaderLernaPath = join(__dirname, '../../../../../node_modules');
   const localPath = join(projectPath, 'node_modules');
+  const localLernaPath = join(projectPath, '../../node_modules');
 
   const paths = [];
 
   // project node_modules
   existsSync(localPath) && paths.push(localPath);
+
+  // project lerna node_modules
+  existsSync(localLernaPath) && paths.push(localLernaPath);
 
   // cli node_modules
   existsSync(loaderPath) && paths.push(loaderPath);
