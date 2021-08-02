@@ -6,6 +6,9 @@
     "prepare": "husky install",
     "publish": "lerna publish from-package --skip-git",
     "link:iwr": "yarn workspace iwr link",
+    "publish:iwr": "yarn workspace iwr publish",
+    "publish:storage": "yarn workspace @iosecret/storage publish",
+    "publish:wechat": "yarn workspace @iosecret/wechat publish",
     "build:storage": "yarn workspace @iosecret/storage build:esm",
     "build:wechat": "yarn workspace @iosecret/wechat build:esm"
   },
