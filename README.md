@@ -35,52 +35,56 @@ $ iwr
 ```bash
 → iwr                                                                                                    [721a6b4]
 Usage: iwr
-  water create
-  water dev
-  water prod -i -a [analyzerPort]
-  water umd -i
-
+  _                 _   ___   _ ____  
+ (_)_      ___ __  / | / _ \ / | ___| 
+ | \ \ /\ / / '__| | || | | || |___ \ 
+ | |\ V  V /| |    | || |_| || |___) |
+ |_| \_/\_/ |_|    |_(_)___(_)_|____/ 
+                                      
 Params:
-
   dev:
     -i 是否打印详细信息
-
-  prod:
+  
+  prod: 
     -i 是否打印详细信息
-    -a [analyzerPort] 是否开启代码依赖分析（默认端口8989）
+    -a <analyzerPort> 是否开启代码依赖分析（默认端口8989）
 
   umd:
     -i 是否打印详细信息
-
+    
+  rule:
+    -o <output> 生成目录
+    
 
 Options:
   -V, --version   output the version number
   -h, --help      display help for command
 
 Commands:
-  create          初始化项目
-  dev             开发环境构建
-  prod            生产环境构建
-  umd             公共包构建
+  dev             🍊 开发环境构建
+  prod [options]  🍌 生产环境构建
+  umd [options]   🍎 umd 包构建
+  create          🍉 初始化工程
+  rule [options]  🌰 规则生成（eslint、commitlint、prettier)
   help [command]  display help for command
 ```
 
 ### 命令说明
 
-- 初始化项目命令
+- 初始化工程
 
 ```bash
 $ iwr create
 ```
 
-- 开发模式
+- 开发模式构建
 
 ```bash
 # 开发模式构建
 $ iwr dev
 ```
 
-- 生产模式
+- 生产模式构建
 
 ```bash
 # 生产环境构建
@@ -92,10 +96,19 @@ $ iwr prod -a
 $ iwr prod -a 9999
 ```
 
-- 初始化 eslint/commitlint 规则
+- umd 公共包构建
+
+```bash
+$ iwr umd
+```
+
+
+- eslint/commitlint 规则生成
 
 ```bash
 $ iwr rule
+# 制定路径生成
+$ iwr rule -o <output>
 ```
 
 ## [storage](./packages/storage/README.md)

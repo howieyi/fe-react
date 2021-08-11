@@ -13,7 +13,6 @@
   "types": "./dist/esm/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "prepublishOnly": "npm run clean && npm run build:esm",
     "build:esm": "tsc --project tsconfig.json --outDir dist/esm/ --module ES2015",
     "build:cjs": "tsc --project tsconfig.json --outDir dist/cjs/ --module CommonJS"
   },

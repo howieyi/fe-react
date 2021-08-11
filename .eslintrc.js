@@ -14,6 +14,7 @@ module.exports = {
     'no-console': 'off',
     'global-require': 'off',
     'import/no-dynamic-require': 'off',
+    'import/prefer-default-export': 'off',
     'react/no-children-prop': 'off',
     'no-underscore-dangle': 'off',
     'no-restricted-syntax': 'off',

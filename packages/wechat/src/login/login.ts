@@ -21,7 +21,7 @@ export const webpageLogin = (
   isSilent: boolean = false,
   redirectUrl: string = window.location.href,
 ): string => {
-  if (!isWeChatBrowser()) return;
+  if (!isWeChatBrowser()) return '';
 
   if (!appId) throw new Error('缺少 appId');
 

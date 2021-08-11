@@ -4,8 +4,7 @@
  * @returns
  */
 export const isWeChatBrowser = (): boolean => {
-  const userAgent = window.navigator.userAgent;
-  return Boolean(userAgent.match(/MicroMessenger/gi));
+  return Boolean(window.navigator.userAgent.match(/MicroMessenger/gi));
 };
 
 /**
@@ -15,14 +14,17 @@ export const isWeChatBrowser = (): boolean => {
  * @param url 被解析 url，默认为当前 url 的 search
  * @returns
  */
-export const getQueryParam = (key: string, url: string = window.location.search): string => {
+export const getQueryParam = (
+  key: string,
+  url: string = window.location.search,
+): string => {
   if (!key) return '';
 
-  const reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)', 'i');
+  const reg = new RegExp(`(^|&)${key}=([^&]*)(&|$)`, 'i');
   const result = url.substr(url.indexOf('?') + 1).match(reg);
   if (result !== null) {
     return decodeURI(result[2]);
-  } else {
-    return null;
   }
+
+  return null;
 };

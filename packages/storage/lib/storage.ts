@@ -4,29 +4,25 @@ const session = window.sessionStorage;
 /**
  * 移除缓存
  *
- * @param local localStorage/sessionStorage
+ * @param storage localStorage/sessionStorage
  * @param key 缓存 key
  * @returns
  */
-const removeStorage = function (local: Storage, key: string) {
+const removeStorage = (storage: Storage, key: string) => {
   if (!key) return;
-  local.removeItem(key);
+  storage.removeItem(key);
 };
 
 /**
  * 获取缓存
  *
- * @param local localStorage/sessionStorage
+ * @param storage localStorage/sessionStorage
  * @param key 缓存 key
  * @returns
  */
-const getStorage = function (local: Storage, key: string) {
-  let value = key ? local.getItem(key) : null;
-  try {
-    value = value && /^\{.+\}$/.test(value) ? JSON.parse(value) : value;
-  } catch (error) {
-    throw error;
-  }
+const getStorage = (storage: Storage, key: string) => {
+  let value = key ? storage.getItem(key) : null;
+  value = value && /^\{.+\}$/.test(value) ? JSON.parse(value) : value;
   return value;
 };
 
@@ -38,15 +34,11 @@ const getStorage = function (local: Storage, key: string) {
  * @param value 缓存值
  * @returns
  */
-const setStorage = function (local: Storage, key: string, value: any) {
+const setStorage = (storage: Storage, key: string, value: any) => {
   if (!key) return;
 
-  try {
-    const _value = typeof value === 'object' ? JSON.stringify(value) : value;
-    local.setItem(key, _value);
-  } catch (error) {
-    throw error;
-  }
+  const newValue = typeof value === 'object' ? JSON.stringify(value) : value;
+  storage.setItem(key, newValue);
 };
 
 /**
@@ -63,7 +55,8 @@ export const removeLocal = (key: string) => removeStorage(local, key);
  * @param value 缓存值
  * @returns
  */
-export const setLocal = (key: string, value: any) => setStorage(local, key, value);
+export const setLocal = (key: string, value: any) =>
+  setStorage(local, key, value);
 
 /**
  * 获取本地 localStorage 缓存
@@ -87,7 +80,8 @@ export const removeSession = (key: string) => removeStorage(session, key);
  * @param value 缓存值
  * @returns
  */
-export const setSession = (key: string, value: any) => setStorage(session, key, value);
+export const setSession = (key: string, value: any) =>
+  setStorage(session, key, value);
 
 /**
  * 获取本地 sessionStorage 缓存
