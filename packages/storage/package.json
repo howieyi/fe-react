@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "web 缓存工具函数",
   "keywords": [
     "storage"
