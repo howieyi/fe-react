@@ -6,9 +6,10 @@
     "prepare": "husky install",
     "publish": "lerna publish from-package --skip-git",
     "link:iwr": "yarn workspace iwr link",
+    "stage": "git add .",
     "publish:iwr": "yarn workspace iwr publish",
-    "publish:storage": "npm run build:storage && yarn workspace @iosecret/storage publish",
-    "publish:wechat": "npm run build:wechat && yarn workspace @iosecret/wechat publish",
+    "publish:storage": "npm run build:storage && npm run stage && yarn workspace @iosecret/storage publish",
+    "publish:wechat": "npm run build:wechat && npm run stage && yarn workspace @iosecret/wechat publish",
     "build:storage": "yarn workspace @iosecret/storage build:esm && prettier -w ./packages/storage/dist/**/*.js",
     "build:wechat": "yarn workspace @iosecret/wechat build:esm && prettier -w ./packages/wechat/dist/**/*.js"
   },

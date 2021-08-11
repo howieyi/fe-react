@@ -4,8 +4,7 @@
  * @returns
  */
 export const isWeChatBrowser = () => {
-    const userAgent = window.navigator.userAgent;
-    return Boolean(userAgent.match(/MicroMessenger/gi));
+  return Boolean(window.navigator.userAgent.match(/MicroMessenger/gi));
 };
 /**
  * 获取 url 中的某个参数
@@ -15,14 +14,11 @@ export const isWeChatBrowser = () => {
  * @returns
  */
 export const getQueryParam = (key, url = window.location.search) => {
-    if (!key)
-        return '';
-    const reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)', 'i');
-    const result = url.substr(url.indexOf('?') + 1).match(reg);
-    if (result !== null) {
-        return decodeURI(result[2]);
-    }
-    else {
-        return null;
-    }
+  if (!key) return '';
+  const reg = new RegExp(`(^|&)${key}=([^&]*)(&|$)`, 'i');
+  const result = url.substr(url.indexOf('?') + 1).match(reg);
+  if (result !== null) {
+    return decodeURI(result[2]);
+  }
+  return null;
 };
