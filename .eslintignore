@@ -3,3 +3,5 @@ node_modules
 .eslintrc.js
 
 dist
+iwr.config.js
+template

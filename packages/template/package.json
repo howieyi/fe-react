@@ -5,7 +5,8 @@
   "keywords": [
     "react"
   ],
-  "author": "水逆 <huyi247767221@163.com>",
+  "private": false,
+  "author": "水逆",
   "homepage": "https://github.com/howieyi/water-react#readme",
   "license": "ISC",
   "main": "lib/template.js",
@@ -16,13 +17,25 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.yarnpkg.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/howieyi/water-react.git"
   },
-  "scripts": {},
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublish": "npm run build",
+    "build": "npm run clean && tsc --project tsconfig.json --outDir dist/ --module COMMONJS"
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.12"
+  },
   "bugs": {
     "url": "https://github.com/howieyi/water-react/issues"
   }

@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": ".ts",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "types": ["react", "react-dom", "react-router-dom", "node"],
+    "allowJs": true,
+    "module": "esnext",
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.js", "**/*.spec.ts", "src/**/*.md"],
+  "compileOnSave": false
+}

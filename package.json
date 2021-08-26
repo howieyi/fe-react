@@ -4,9 +4,9 @@
   "description": "react 快速开发生态",
   "scripts": {
     "prepare": "husky install",
+    "preinstall": "lerna bootstrap",
     "publish": "lerna publish from-package --skip-git",
     "link:iwr": "yarn workspace iwr link",
-    "stage": "git add .",
     "publish:iwr": "yarn workspace iwr publish",
     "publish:storage": "npm run build:storage && npm run stage && yarn workspace @iosecret/storage publish",
     "publish:wechat": "npm run build:wechat && npm run stage && yarn workspace @iosecret/wechat publish",
@@ -18,9 +18,9 @@
   ],
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
+      "git add .",
       "prettier --write",
-      "eslint --fix",
-      "git add ."
+      "eslint --fix"
     ]
   },
   "devDependencies": {
