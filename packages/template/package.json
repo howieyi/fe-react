@@ -1,0 +1,29 @@
+{
+  "name": "@iosrcret/template",
+  "version": "1.0.0",
+  "description": "脚手架模板管理",
+  "keywords": [
+    "react"
+  ],
+  "author": "水逆 <huyi247767221@163.com>",
+  "homepage": "https://github.com/howieyi/water-react#readme",
+  "license": "ISC",
+  "main": "lib/template.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howieyi/water-react.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/howieyi/water-react/issues"
+  }
+}
