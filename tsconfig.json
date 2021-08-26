@@ -12,8 +12,6 @@
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": false,
     "jsx": "react",
-    "esModuleInterop": true,
-    "baseUrl": ".",
-    "paths": {}
+    "esModuleInterop": true
   }
 }
