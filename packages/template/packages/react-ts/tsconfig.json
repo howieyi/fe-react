@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": ".ts",
     "paths": {
       "@/*": ["src/*"]
     },
@@ -20,7 +19,7 @@
     "noImplicitThis": true,
     "suppressImplicitAnyIndexErrors": true,
     "downlevelIteration": true,
-    "importHelpers": true,
+    "importHelpers": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["src/**/*.js", "**/*.spec.ts", "src/**/*.md"],

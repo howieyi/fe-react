@@ -1,11 +1,13 @@
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+exports.ruleConfig = exports.templateConfig = exports.templateList = void 0;
 /** 模板列表 */
-export const templateList = [
+exports.templateList = [
   { name: 'react', text: 'react javascript' },
   { name: 'react-ts', text: 'react typescript' },
 ];
-
 /** 模板基本配置 */
-export const templateConfig = {
+exports.templateConfig = {
   dependencies: {
     vscode: '.vscode',
     husky: '.husky',
@@ -22,9 +24,8 @@ export const templateConfig = {
     },
   },
 };
-
 /** eslint/commitlint 规则配置 */
-export const ruleConfig = {
+exports.ruleConfig = {
   /** eslint 相关配置依赖 */
   eslint: {
     dependencies: [

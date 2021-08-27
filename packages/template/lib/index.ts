@@ -12,7 +12,7 @@ import {
   mkdirsSync,
 } from 'fs-extra';
 
-import { templateConfig, ruleConfig } from './config';
+import { templateConfig, ruleConfig, templateList } from './config';
 
 /** 生成模板入参定义 */
 interface IGenerateTemplateProps {
@@ -24,8 +24,8 @@ interface IGenerateTemplateProps {
   description: string;
   /** 项目监听端口 */
   port?: string;
-  /** 项目模板相关 bridge */
-  bridge?: string;
+  /** 项目模板 */
+  template?: string;
 }
 
 /** 生成规则入参定义 */
@@ -78,6 +78,13 @@ const transferFile = (
 };
 
 /**
+ * 获取模板列表
+ *
+ * @returns
+ */
+export const getTemplateList = () => templateList;
+
+/**
  * 生成模板
  *
  * @param toPath
@@ -89,13 +96,12 @@ export const generateTemplate = (
     name = 'web',
     version = '1.0.0',
     description = 'web',
-    bridge = '无',
+    template = 'react-ts',
     port = '8081',
   }: IGenerateTemplateProps,
 ): void => {
-  const tempKey = `h5${bridge === '无' ? '' : '-bridge'}`;
-  const tempConfig: typeof templateConfig.packages.h5 =
-    templateConfig.packages[tempKey];
+  const tempConfig: typeof templateConfig.packages.react =
+    templateConfig.packages[template];
 
   const fromRoot = join(__dirname, '../');
   const toRoot = join(toPath, name);
@@ -110,7 +116,7 @@ export const generateTemplate = (
   // 迁移依赖代码
   tempConfig.dependencies.forEach(it => {
     const dependPath = join(fromRoot, 'dependencies', it);
-    if (it === 'rules') {
+    if (it === 'rule') {
       // 生成规则到目录下
       copySync(dependPath, toRoot);
     } else {
@@ -128,9 +134,9 @@ export const generateTemplate = (
   writeJsonSync(packageJsonPath, toPackageJson, { spaces: 2 });
 
   // 更新配置文件端口
-  const stcConfigFile = join(toRoot, 'stc.config.js');
+  const stcConfigFile = join(toRoot, 'iwr.config.js');
   transferFile(stcConfigFile, stcConfigFile, data =>
-    data.replace(/\{t-port\}/g, port),
+    data.replace(/\{iwr-port\}/g, port),
   );
 };
 
@@ -172,14 +178,6 @@ export const generateRule = (
     if (isEslint) {
       files.push(...ruleConfig.eslint.files);
       dependencies.push(...ruleConfig.eslint.dependencies);
-
-      // tsconfig 不存在即新建
-      const tsconfigPath = join(toPath, 'tsconfig.json');
-      !existsSync(tsconfigPath) &&
-        copyFileSync(
-          join(__dirname, '../dependencies/rules/tsconfig.json'),
-          tsconfigPath,
-        );
     }
 
     if (isCommitLint) {

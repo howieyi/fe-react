@@ -1,11 +1,15 @@
-# `template`
+# `@iosecret/template`
 
-> TODO: description
+> 常用项目模板统一管理
 
 ## Usage
 
-```
-const template = require('template');
+```javascript
+const { getTemplateList, generateTemplate, generateRule } = require('@iosecret/template');
 
-// TODO: DEMONSTRATE API
+// 获取模板列表
+getTemplateList();
+
+// 生成工程模板
+generateTemplate
 ```

@@ -5,11 +5,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['airbnb-base', 'airbnb-typescript', 'plugin:prettier/recommended'],
-  parserOptions: {
-    ecmaVersion: 12,
-    project: './tsconfig.json',
-  },
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
   rules: {
     'no-console': 'off',
     'no-multi-assign': 'off',
