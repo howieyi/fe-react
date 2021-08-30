@@ -82,7 +82,18 @@ const transferFile = (
  *
  * @returns
  */
-export const getTemplateList = () => templateList;
+export const getTemplateQuestionList = () => templateList.map(it => it.text);
+
+/**
+ * 获取模板目录别名
+ *
+ * @param text
+ * @returns
+ */
+const getTemplateName = (text: string) => {
+  const item = templateList.find(it => it.text === text);
+  return item.name;
+};
 
 /**
  * 生成模板
@@ -96,12 +107,15 @@ export const generateTemplate = (
     name = 'web',
     version = '1.0.0',
     description = 'web',
-    template = 'react-ts',
+    template,
     port = '8081',
   }: IGenerateTemplateProps,
 ): void => {
+  const templateKey = getTemplateName(template);
+  if (!templateKey) throw new Error('💣 没有找到对应模板');
+
   const tempConfig: typeof templateConfig.packages.react =
-    templateConfig.packages[template];
+    templateConfig.packages[templateKey];
 
   const fromRoot = join(__dirname, '../');
   const toRoot = join(toPath, name);

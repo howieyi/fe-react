@@ -25,10 +25,7 @@ interface IGenerateRuleProps {
  *
  * @returns
  */
-export declare const getTemplateList: () => {
-  name: string;
-  text: string;
-}[];
+export declare const getTemplateQuestionList: () => string[];
 /**
  * 生成模板
  *
