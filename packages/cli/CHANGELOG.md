@@ -1,3 +1,8 @@
+## v1.0.16
+
+- `iwr create` 初始化工程模板统一迁移到 `@iosecret/template` 包中；
+- `iwr rule` 生成 eslint/commitlint 规则配置文件统一迁移到 `@iosecret/template` 包中；
+
 ## v1.0.15
 
 - 新增 `eslint` 常规 rules
