@@ -42,16 +42,16 @@ exports.ruleConfig = {
       'typescript',
       '@typescript-eslint/eslint-plugin',
     ],
-    files: ['rules/.eslintignore', 'rules/.eslintrc.js', '.husky/pre-commit'],
+    files: ['rule/.eslintignore', 'rule/.eslintrc.js', '.husky/pre-commit'],
   },
   /** commitlint 相关配置依赖 */
   commitlint: {
     dependencies: ['@commitlint/cli', '@commitlint/config-conventional'],
-    files: ['rules/commitlint.config.js', '.husky/commit-msg'],
+    files: ['rule/commitlint.config.js', '.husky/commit-msg'],
   },
   /** 格式化相关配置依赖 */
   prettier: {
     dependencies: ['eslint-plugin-prettier', 'prettier'],
-    files: ['rules/.prettierrc', 'rules/.prettierignore', '.vscode'],
+    files: ['rule/.prettierrc', 'rule/.prettierignore', '.vscode'],
   },
 };

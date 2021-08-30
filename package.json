@@ -14,7 +14,7 @@
     "build:template": "yarn workspace @iosecret/template build && prettier -w ./packages/template/dist/**/*.{js,ts}",
     "publish:storage": "npm run build:storage && npm run stage && yarn workspace @iosecret/storage publish",
     "publish:wechat": "npm run build:wechat && npm run stage && yarn workspace @iosecret/wechat publish",
-    "publish:template": "npm run stage && yarn workspace @iosecret/template publish"
+    "publish:template": "npm run build:template && npm run stage && yarn workspace @iosecret/template publish"
   },
   "workspaces": [
     "packages/*"
