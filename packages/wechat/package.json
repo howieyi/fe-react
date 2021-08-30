@@ -15,7 +15,8 @@
     "build:cjs": "tsc --project tsconfig.json --outDir dist/cjs/ --module CommonJS"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "author": "水逆",
   "license": "ISC",

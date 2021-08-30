@@ -1,31 +1,39 @@
 {
   "name": "@iosecret/template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "脚手架模板管理",
   "keywords": [
-    "react"
+    "react",
+    "template"
   ],
   "private": false,
   "author": "水逆",
-  "homepage": "https://github.com/howieyi/water-react#readme",
+  "homepage": "https://github.com/howieyi/fe-react/tree/main/packages/template",
   "license": "ISC",
-  "main": "lib/template.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "directories": {
-    "lib": "lib"
+    "dist": "dist",
+    "dependencies": "dependencies",
+    "packages": "packages"
   },
   "files": [
-    "lib"
+    "dist",
+    "packages",
+    "dependencies",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/howieyi/water-react.git"
+    "url": "git+https://github.com/howieyi/fe-react.git"
   },
   "scripts": {
     "clean": "rimraf dist",
-    "prepublish": "npm run build",
     "build": "npm run clean && tsc --project tsconfig.json --outDir dist/ --module COMMONJS"
   },
   "dependencies": {
@@ -37,6 +45,6 @@
     "@types/fs-extra": "^9.0.12"
   },
   "bugs": {
-    "url": "https://github.com/howieyi/water-react/issues"
+    "url": "https://github.com/howieyi/fe-react/issues"
   }
 }
