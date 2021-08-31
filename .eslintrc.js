@@ -11,6 +11,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    'prefer-destructuring': 'off',
     'no-console': 'off',
     'global-require': 'off',
     'import/no-dynamic-require': 'off',
