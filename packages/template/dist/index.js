@@ -67,6 +67,7 @@ const generateTemplate = (
     name = 'web',
     version = '1.0.0',
     description = 'web',
+    author = '水逆',
     template,
     port = '8081',
   },
@@ -97,6 +98,7 @@ const generateTemplate = (
   const toPackageJson = fs_extra_1.readJsonSync(packageJsonPath);
   toPackageJson.name = name;
   toPackageJson.version = version;
+  toPackageJson.author = author;
   toPackageJson.description = description;
   fs_extra_1.writeJsonSync(packageJsonPath, toPackageJson, { spaces: 2 });
   // 更新配置文件端口

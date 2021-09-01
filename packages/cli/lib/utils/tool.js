@@ -1,10 +1,11 @@
 const figlet = require('figlet');
-const lolcat = require('@darkobits/lolcatjs');
+const Lolcat = require('@darkobits/lolcatjs');
 
 // 渐变输出
 const textToLolcat = text => {
   const code = figlet.textSync(text);
-  return lolcat.default.fromString(code);
+  const lol = Lolcat.default || Lolcat;
+  return lol?.fromString(code) || code;
 };
 
 module.exports = {

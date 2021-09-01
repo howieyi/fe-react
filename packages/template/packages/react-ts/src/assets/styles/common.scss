@@ -1,7 +1,7 @@
-@import "./variable.scss";
-@import "./animate.scss";
+@import './variable.scss';
+@import './animate.scss';
 
-@import "../node_modules/normalize.css/normalize.css";
+@import 'normalize.css/normalize.css';
 
 * {
   box-sizing: border-box;
@@ -13,11 +13,10 @@ body {
   height: 100%;
   line-height: 1.44;
   font-size: 14px;
-  font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei",
-    "PingFangSC-Regular", "Arial", sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'Microsoft YaHei', 'PingFangSC-Regular', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga", "kern";
+  -moz-font-feature-settings: 'liga', 'kern';
 
   ::-webkit-scrollbar {
     width: 3px;
@@ -54,7 +53,7 @@ body {
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
@@ -64,7 +63,8 @@ a {
   text-decoration: none;
 }
 
-ul,li {
+ul,
+li {
   list-style: none;
   margin: 0;
   padding: 0;

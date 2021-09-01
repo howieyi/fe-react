@@ -22,6 +22,8 @@ interface IGenerateTemplateProps {
   version: string;
   /** 项目描述 */
   description: string;
+  /** 项目作者 */
+  author: string;
   /** 项目监听端口 */
   port?: string;
   /** 项目模板 */
@@ -107,6 +109,7 @@ export const generateTemplate = (
     name = 'web',
     version = '1.0.0',
     description = 'web',
+    author = '水逆',
     template,
     port = '8081',
   }: IGenerateTemplateProps,
@@ -144,6 +147,7 @@ export const generateTemplate = (
   const toPackageJson = readJsonSync(packageJsonPath);
   toPackageJson.name = name;
   toPackageJson.version = version;
+  toPackageJson.author = author;
   toPackageJson.description = description;
   writeJsonSync(packageJsonPath, toPackageJson, { spaces: 2 });
 

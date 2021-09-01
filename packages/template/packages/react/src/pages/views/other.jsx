@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Other extends Component {
-  render() {
-    return <div>其他</div>;
-  }
+export default function Index() {
+  return <div>其他</div>;
 }
