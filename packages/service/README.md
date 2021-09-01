@@ -1,11 +1,24 @@
-# `service`
+# `@iosecret/service`
 
-> TODO: description
+> 公共服务的处理
 
 ## Usage
 
-```
-const service = require('service');
+```typescript
+import { request } from '@iosecret/servic';
 
-// TODO: DEMONSTRATE API
+// 1. 请求处理
+// 前置处理
+request.before = options => {
+  options.method = options.method || 'POST';
+};
+
+// 返回解析
+request.after = (data, resolve) => {
+  // TODO 统一处理请求返回
+  resolve(data);
+};
+
+// 通用请求
+request({ url: '' }).then();
 ```
