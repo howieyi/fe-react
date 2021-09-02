@@ -41,7 +41,7 @@ class Turntable {
      * @returns
      */
     this.rotate = isContinue => {
-      this.usedTime += 20;
+      this.usedTime += this.step;
       const { step, usedTime, duration } = this;
       if (usedTime >= duration) {
         isContinue && isContinue(this.result, this.usedTime);
@@ -50,8 +50,7 @@ class Turntable {
         return;
       }
       const change =
-        (step - (0, exports.easeInOut)(usedTime, 0, step, duration)) *
-        (Math.PI / 180);
+        (0, exports.easeInOut)(usedTime, 0, step, duration) * (Math.PI / 180);
       this.result += (change * 180) / Math.PI;
       // 继续条件
       (!isContinue || (isContinue && isContinue(this.result, this.usedTime))) &&
