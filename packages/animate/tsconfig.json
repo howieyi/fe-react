@@ -1,11 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "importHelpers": true,
     "sourceMap": false,
+    "importHelpers": true,
+    "resolveJsonModule": true,
     "module": "ES2015",
     "outDir": "dist/",
     "baseUrl": "."
   },
-  "include": ["lib"]
+  "include": ["./lib"]
 }

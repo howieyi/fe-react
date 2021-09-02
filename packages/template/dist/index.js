@@ -2,7 +2,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 exports.generateRule =
   exports.generateTemplate =
-  exports.getTemplateList =
+  exports.getTemplateQuestionList =
     void 0;
 const path_1 = require('path');
 const fs_extra_1 = require('fs-extra');
@@ -43,8 +43,18 @@ const transferFile = (fromFile, toFile, formatter = null) => {
  *
  * @returns
  */
-const getTemplateList = () => config_1.templateList;
-exports.getTemplateList = getTemplateList;
+const getTemplateQuestionList = () => config_1.templateList.map(it => it.text);
+exports.getTemplateQuestionList = getTemplateQuestionList;
+/**
+ * 获取模板目录别名
+ *
+ * @param text
+ * @returns
+ */
+const getTemplateName = text => {
+  const item = config_1.templateList.find(it => it.text === text);
+  return item.name;
+};
 /**
  * 生成模板
  *
@@ -57,11 +67,14 @@ const generateTemplate = (
     name = 'web',
     version = '1.0.0',
     description = 'web',
-    template = 'react-ts',
+    author = '水逆',
+    template,
     port = '8081',
   },
 ) => {
-  const tempConfig = config_1.templateConfig.packages[template];
+  const templateKey = getTemplateName(template);
+  if (!templateKey) throw new Error('💣 没有找到对应模板');
+  const tempConfig = config_1.templateConfig.packages[templateKey];
   const fromRoot = path_1.join(__dirname, '../');
   const toRoot = path_1.join(toPath, name);
   // 生成目录不存在，则新建
@@ -85,6 +98,7 @@ const generateTemplate = (
   const toPackageJson = fs_extra_1.readJsonSync(packageJsonPath);
   toPackageJson.name = name;
   toPackageJson.version = version;
+  toPackageJson.author = author;
   toPackageJson.description = description;
   fs_extra_1.writeJsonSync(packageJsonPath, toPackageJson, { spaces: 2 });
   // 更新配置文件端口

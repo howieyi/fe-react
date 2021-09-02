@@ -7,6 +7,7 @@
 - [`cli` 命令行工具](#cli)：基于 react 的构建工具
 - [`@iosecret/storage` 缓存处理](#storage)：对于 storage 的统一处理
 - [`@iosecret/wechat` 微信生态开发](#wechat)：对于微信生态开发的统一处理
+- [`@iosecret/service` 公共服务提供](#service)：对于公共服务的统一处理，比如请求、时间等
 
 ## [cli](./packages/cli/README.md)
 
@@ -35,26 +36,26 @@ $ iwr
 ```bash
 → iwr                                                                                                    [721a6b4]
 Usage: iwr
-  _                 _   ___   _ ____  
- (_)_      ___ __  / | / _ \ / | ___| 
- | \ \ /\ / / '__| | || | | || |___ \ 
+  _                 _   ___   _ ____
+ (_)_      ___ __  / | / _ \ / | ___|
+ | \ \ /\ / / '__| | || | | || |___ \
  | |\ V  V /| |    | || |_| || |___) |
- |_| \_/\_/ |_|    |_(_)___(_)_|____/ 
-                                      
+ |_| \_/\_/ |_|    |_(_)___(_)_|____/
+
 Params:
   dev:
     -i 是否打印详细信息
-  
-  prod: 
+
+  prod:
     -i 是否打印详细信息
     -a <analyzerPort> 是否开启代码依赖分析（默认端口8989）
 
   umd:
     -i 是否打印详细信息
-    
+
   rule:
     -o <output> 生成目录
-    
+
 
 Options:
   -V, --version   output the version number
@@ -101,7 +102,6 @@ $ iwr prod -a 9999
 ```bash
 $ iwr umd
 ```
-
 
 - eslint/commitlint 规则生成
 
@@ -161,4 +161,29 @@ const code = getQueryParam('code', window.location.search);
 
 // 3. 微信网页授权
 const code = webpageLogin('appId', true /* 是否静默登录*/, '重定向地址');
+```
+
+## [service](./packages/service/README.md)
+
+> 针对公共服务提供
+
+1. 公共请求
+
+```typescript
+import { request } from '@iosecret/servic';
+
+// 1. 请求处理
+// 前置处理
+request.before = options => {
+  options.method = options.method || 'POST';
+};
+
+// 返回解析
+request.after = (data, resolve) => {
+  // TODO 统一处理请求返回
+  resolve(data);
+};
+
+// 通用请求
+request({ url: '' }).then();
 ```

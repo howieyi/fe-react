@@ -6,6 +6,8 @@ interface IGenerateTemplateProps {
   version: string;
   /** 项目描述 */
   description: string;
+  /** 项目作者 */
+  author: string;
   /** 项目监听端口 */
   port?: string;
   /** 项目模板 */
@@ -25,10 +27,7 @@ interface IGenerateRuleProps {
  *
  * @returns
  */
-export declare const getTemplateList: () => {
-  name: string;
-  text: string;
-}[];
+export declare const getTemplateQuestionList: () => string[];
 /**
  * 生成模板
  *
@@ -37,7 +36,14 @@ export declare const getTemplateList: () => {
  */
 export declare const generateTemplate: (
   toPath: string,
-  { name, version, description, template, port }: IGenerateTemplateProps,
+  {
+    name,
+    version,
+    description,
+    author,
+    template,
+    port,
+  }: IGenerateTemplateProps,
 ) => void;
 /**
  * 生成规则配置，并抛出相关依赖

@@ -7,5 +7,5 @@
     "outDir": "dist/",
     "baseUrl": "."
   },
-  "include": ["lib"]
+  "include": ["./lib"]
 }

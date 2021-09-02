@@ -2,17 +2,13 @@ const ora = require('ora');
 const { red } = require('chalk');
 const { prompt } = require('inquirer');
 const { exec, echo } = require('shelljs');
-const { getTemplateList, generateTemplate } = require('@iosecret/template');
+const {
+  getTemplateQuestionList,
+  generateTemplate,
+} = require('@iosecret/template');
 
 const iwrCreate = program => {
-  const templateList = getTemplateList();
-  const templateMapping = {};
-  const templateNames = [];
-
-  templateList.forEach(it => {
-    templateNames.push(it.text);
-    templateMapping[it.text] = it.name;
-  });
+  const templateList = getTemplateQuestionList();
 
   const questions = [
     {
@@ -49,7 +45,8 @@ const iwrCreate = program => {
       type: 'list',
       name: 'template',
       message: '选择模板：',
-      choices: templateNames,
+      choices: templateList,
+      default: templateList[0],
     },
   ];
 
@@ -61,15 +58,12 @@ const iwrCreate = program => {
 
       prompt(questions)
         .then(options => {
-          const { name, template } = options;
+          const { name } = options;
 
           spinner.start();
 
           // 复制项目模板
-          generateTemplate(process.cwd(), {
-            ...options,
-            template: templateMapping[template],
-          });
+          generateTemplate(process.cwd(), options);
 
           spinner.text = '🌰 工程生成完成';
 

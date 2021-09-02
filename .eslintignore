@@ -5,3 +5,5 @@ node_modules
 dist
 iwr.config.js
 template
+__tests__
+__test__

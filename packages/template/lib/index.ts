@@ -22,6 +22,8 @@ interface IGenerateTemplateProps {
   version: string;
   /** 项目描述 */
   description: string;
+  /** 项目作者 */
+  author: string;
   /** 项目监听端口 */
   port?: string;
   /** 项目模板 */
@@ -82,7 +84,18 @@ const transferFile = (
  *
  * @returns
  */
-export const getTemplateList = () => templateList;
+export const getTemplateQuestionList = () => templateList.map(it => it.text);
+
+/**
+ * 获取模板目录别名
+ *
+ * @param text
+ * @returns
+ */
+const getTemplateName = (text: string) => {
+  const item = templateList.find(it => it.text === text);
+  return item.name;
+};
 
 /**
  * 生成模板
@@ -96,12 +109,16 @@ export const generateTemplate = (
     name = 'web',
     version = '1.0.0',
     description = 'web',
-    template = 'react-ts',
+    author = '水逆',
+    template,
     port = '8081',
   }: IGenerateTemplateProps,
 ): void => {
+  const templateKey = getTemplateName(template);
+  if (!templateKey) throw new Error('💣 没有找到对应模板');
+
   const tempConfig: typeof templateConfig.packages.react =
-    templateConfig.packages[template];
+    templateConfig.packages[templateKey];
 
   const fromRoot = join(__dirname, '../');
   const toRoot = join(toPath, name);
@@ -130,6 +147,7 @@ export const generateTemplate = (
   const toPackageJson = readJsonSync(packageJsonPath);
   toPackageJson.name = name;
   toPackageJson.version = version;
+  toPackageJson.author = author;
   toPackageJson.description = description;
   writeJsonSync(packageJsonPath, toPackageJson, { spaces: 2 });
 
