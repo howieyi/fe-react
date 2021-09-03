@@ -20,6 +20,8 @@ type IRequest = {
  */
 export const request: IRequest = <T>(options: IRequestOption): Promise<T> => {
   return new Promise<T>((resolve, reject) => {
+    options.responseType = 'json';
+
     // 前置处理参数
     request.before && request.before(options);
 
