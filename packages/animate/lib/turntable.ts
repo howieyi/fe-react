@@ -54,7 +54,7 @@ export class Turntable {
    * @returns
    */
   rotate = (isContinue: (angel: number, usedTime: number) => boolean) => {
-    this.usedTime += 20;
+    this.usedTime += this.step;
 
     const { step, usedTime, duration } = this;
 
@@ -65,8 +65,7 @@ export class Turntable {
       return;
     }
 
-    const change =
-      (step - easeInOut(usedTime, 0, step, duration)) * (Math.PI / 180);
+    const change = easeInOut(usedTime, 0, step, duration) * (Math.PI / 180);
     this.result += (change * 180) / Math.PI;
 
     // 继续条件

@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/service",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "公共服务",
   "keywords": [
     "service",
@@ -36,6 +36,7 @@
     "url": "https://github.com/howieyi/fe-react/issues"
   },
   "dependencies": {
+    "dayjs": "^1.10.6",
     "xhr": "^2.6.0"
   },
   "devDependencies": {

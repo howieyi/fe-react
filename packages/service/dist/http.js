@@ -6,6 +6,7 @@ import XHR from 'xhr';
  */
 export const request = options => {
   return new Promise((resolve, reject) => {
+    options.responseType = 'json';
     // 前置处理参数
     request.before && request.before(options);
     XHR(options, (err, resp, body) => {

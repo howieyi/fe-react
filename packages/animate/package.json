@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/animate",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "公共动画函数",
   "keywords": [
     "animate"
@@ -8,13 +8,16 @@
   "author": "水逆",
   "homepage": "https://github.com/howieyi/fe-react#readme",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "dist",
+    "package.json",
+    "README.md"
   ],
   "publishConfig": {
     "access": "public",
