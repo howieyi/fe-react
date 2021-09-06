@@ -13,12 +13,14 @@
     "build:template": "yarn workspace @iosecret/template build && prettier -w ./packages/template/dist/**/*.{js,ts}",
     "build:service": "yarn workspace @iosecret/service build && prettier -w ./packages/service/dist/**/*.{js,ts}",
     "build:animate": "yarn workspace @iosecret/animate build && prettier -w ./packages/animate/dist/**/*.{js,ts}",
+    "build:mui": "yarn workspace @iosecret/mui build && prettier -w ./packages/mui/dist/**/*.{js,ts}",
     "publish:iwr": "yarn run stage && yarn workspace iwr publish && node ./scripts/tag.js --package=cli",
     "publish:storage": "npm run build:storage && npm run stage && yarn workspace @iosecret/storage publish && node ./scripts/tag.js --package=storage",
     "publish:wechat": "npm run build:wechat && npm run stage && yarn workspace @iosecret/wechat publish && node ./scripts/tag.js --package=wechat",
     "publish:template": "npm run build:template && npm run stage && yarn workspace @iosecret/template publish && node ./scripts/tag.js --package=template",
     "publish:service": "npm run build:service && npm run stage && yarn workspace @iosecret/service publish && node ./scripts/tag.js --package=service",
-    "publish:animate": "npm run build:animate && npm run stage && yarn workspace @iosecret/animate publish && node ./scripts/tag.js --package=animate"
+    "publish:animate": "npm run build:animate && npm run stage && yarn workspace @iosecret/animate publish && node ./scripts/tag.js --package=animate",
+    "publish:mui": "npm run build:mui && npm run stage && yarn workspace @iosecret/mui publish && node ./scripts/tag.js --package=mui"
   },
   "workspaces": [
     "packages/*"

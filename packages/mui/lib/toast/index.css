@@ -1,0 +1,17 @@
+.mui-toast {
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  z-index: 999999;
+  display: inline;
+  color: #ffffff;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: justify;
+  display: inline-block;
+  animation: jump 0.5s 1;
+  max-width: 80%;
+}

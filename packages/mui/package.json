@@ -1,19 +1,18 @@
 {
-  "name": "@iosecret/service",
-  "version": "1.0.4",
-  "description": "公共服务",
+  "name": "@iosecret/mui",
+  "version": "1.0.1",
+  "description": "h5 通用 ui 库",
   "keywords": [
-    "service",
-    "xhr"
+    "react",
+    "h5"
   ],
   "author": "水逆",
   "homepage": "https://github.com/howieyi/fe-react#readme",
   "license": "ISC",
-  "typings": "dist/index.d.ts",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "directories": {
-    "dist": "dist",
-    "test": "__tests__"
+    "dist": "dist"
   },
   "files": [
     "dist",
@@ -22,7 +21,7 @@
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.com/"
   },
   "repository": {
     "type": "git",
@@ -30,16 +29,14 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && tsc --project tsconfig.json --outDir dist/ --module ES2015"
+    "copy": "node scripts/copy.js",
+    "build": "npm run clean && tsc --project tsconfig.json --outDir dist/ --module ES2015 && npm run copy"
   },
   "bugs": {
     "url": "https://github.com/howieyi/fe-react/issues"
   },
-  "dependencies": {
-    "dayjs": "^1.10.6",
-    "xhr": "^2.6.0"
-  },
   "devDependencies": {
+    "glob": "^7.1.7",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.2"
   }
