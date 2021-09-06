@@ -1,11 +1,11 @@
-# `mui`
+# `@iosecret/mui`
 
-> TODO: description
+> h5 简易 ui 组件
 
 ## Usage
 
-```
-const mui = require('mui');
+```typescript
+import { showToast } from '@iosecret/mui';
 
-// TODO: DEMONSTRATE API
+showToast('简易 toast');
 ```
