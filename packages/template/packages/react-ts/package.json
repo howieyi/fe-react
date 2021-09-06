@@ -1,8 +1,8 @@
 {
-  "name": "{iwr-name}",
-  "version": "{iwr-version}",
-  "description": "{iwr-description}",
-  "author": "{iwr-author}",
+  "name": "react-ts",
+  "version": "1.0.0",
+  "description": "react typescript 模板",
+  "author": "水逆",
   "scripts": {
     "dev": "iwr dev",
     "prod": "iwr prod -i"
@@ -33,7 +33,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "iwr": "^1.0.20",
+    "iwr": "^1.0.21",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.1",
     "prettier": "^2.3.2",

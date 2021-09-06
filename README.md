@@ -4,10 +4,11 @@
 > - 专注于 `react` 项目的初始化和构建的工具，基于模板快速生成新项目，并快速进入开发；
 > - 为了更方便赚外快，哈哈哈
 
-- [`cli` 命令行工具](#cli)：基于 react 的构建工具
-- [`@iosecret/storage` 缓存处理](#storage)：对于 storage 的统一处理
-- [`@iosecret/wechat` 微信生态开发](#wechat)：对于微信生态开发的统一处理
-- [`@iosecret/service` 公共服务提供](#service)：对于公共服务的统一处理，比如请求、时间等
+- [`cli` 命令行工具](#cli)：基于 react 的构建工具；
+- [`@iosecret/storage` 缓存处理](#storage)：对于 storage 的统一处理；
+- [`@iosecret/wechat` 微信生态开发](#wechat)：对于微信生态开发的统一处理；
+- [`@iosecret/service` 公共服务提供](#service)：对于公共服务的统一处理，比如请求、时间等；
+- [`@iosecret/mui` h5 简易组件库](#mui)：简易组件集成，通用组件库没有或者小而美的组件功能；
 
 ## [cli](./packages/cli/README.md)
 
@@ -36,11 +37,11 @@ $ iwr
 ```bash
 → iwr                                                                                                    [721a6b4]
 Usage: iwr
-  _                 _   ___   _ ____
- (_)_      ___ __  / | / _ \ / | ___|
- | \ \ /\ / / '__| | || | | || |___ \
- | |\ V  V /| |    | || |_| || |___) |
- |_| \_/\_/ |_|    |_(_)___(_)_|____/
+  _                 _   ___   ____  _
+ (_)_      ___ __  / | / _ \ |___ \/ |
+ | \ \ /\ / / '__| | || | | |  __) | |
+ | |\ V  V /| |    | || |_| | / __/| |
+ |_| \_/\_/ |_|    |_(_)___(_)_____|_|
 
 Params:
   dev:
@@ -186,4 +187,16 @@ request.after = (data, resolve) => {
 
 // 通用请求
 request({ url: '' }).then();
+```
+
+## [mui](./packages/mui/README.md)
+
+> h5 简易 ui 组件
+
+## Usage
+
+```typescript
+import { showToast } from '@iosecret/mui';
+
+showToast('简易 toast');
 ```
