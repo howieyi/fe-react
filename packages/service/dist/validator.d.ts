@@ -4,4 +4,4 @@
  * @param mobileNo
  * @returns
  */
-export declare const isValidMobile: (mobileNo: string) => RegExp;
+export declare const isValidMobile: (mobileNo: string) => boolean;
