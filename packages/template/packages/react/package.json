@@ -1,7 +1,7 @@
 {
   "name": "react",
   "version": "1.0.0",
-  "description": "react 模板",
+  "description": "react js 模板",
   "author": "水逆",
   "scripts": {
     "dev": "iwr dev",
@@ -30,7 +30,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "iwr": "^1.0.20",
+    "iwr": "^1.0.21",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.1",
     "prettier": "^2.3.2",

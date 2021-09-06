@@ -7,14 +7,14 @@ const apiPrefix = 'https://api.test.example.com';
 const uriPrefix = ['/api'];
 
 // 代理映射
-uriPrefix.forEach(uri => {
+uriPrefix.forEach((uri) => {
   proxyMapping[uri] = {
     target: apiPrefix,
     changeOrigin: true,
     secure: false,
     pathRewrite: {
-      [`^${uri}`]: apiPrefix + uri,
-    },
+      [`^${uri}`]: apiPrefix + uri
+    }
   };
 });
 
@@ -24,7 +24,7 @@ module.exports = {
   target: './src',
   publicPath: '/',
   buildPath: './dist',
-  copyPath: './src/assets/public',
+  copyPath: './public',
   proxy: proxyMapping,
-  markdown: false,
+  markdown: false
 };
