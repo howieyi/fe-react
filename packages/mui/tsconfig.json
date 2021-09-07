@@ -3,7 +3,7 @@
   "compilerOptions": {
     "importHelpers": true,
     "sourceMap": false,
-    "module": "ES2015",
+    "module": "esnext",
     "outDir": "dist/",
     "baseUrl": "."
   },
