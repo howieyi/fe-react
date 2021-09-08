@@ -11,6 +11,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    'react/require-default-props': 'off',
     'prefer-destructuring': 'off',
     'no-console': 'off',
     'global-require': 'off',

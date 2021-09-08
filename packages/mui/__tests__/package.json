@@ -1,0 +1,26 @@
+{
+  "name": "__tests__",
+  "version": "1.0.0",
+  "description": "react 项目",
+  "author": "水逆",
+  "scripts": {
+    "dev": "iwr dev",
+    "prod": "iwr prod -i"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router": "^5.1.11",
+    "@types/react-router-dom": "^5.1.7",
+    "iwr": "^1.0.21"
+  },
+  "license": "ISC",
+  "sideEffects": false
+}
