@@ -1,7 +1,10 @@
 /** 模板列表 */
 export const templateList = [
-  { name: 'react', text: 'react javascript' },
-  { name: 'react-ts', text: 'react typescript' },
+  { name: 'lerna', text: 'lerna 模板' },
+  { name: 'react', text: 'react js 模板' },
+  { name: 'react-rule', text: 'react js 模板（带lint规则）' },
+  { name: 'react-ts', text: 'react ts 模板' },
+  { name: 'react-ts-rule', text: 'react ts 模板（带lint规则）' },
 ];
 
 /** 模板基本配置 */
@@ -12,13 +15,42 @@ export const templateConfig = {
     rule: 'rule',
   },
   packages: {
-    react: {
-      path: 'react',
-      dependencies: ['.vscode', '.husky', 'rule'],
+    lerna: {
+      path: 'lerna',
+      dependencies: [
+        '.vscode',
+        '.husky',
+        'commitlint',
+        'eslint',
+        'prettier',
+        'git',
+      ],
     },
-    'react-ts': {
-      path: 'react-ts',
-      dependencies: ['.vscode', '.husky', 'rule'],
+    react: { path: 'react', dependencies: ['iwr', 'git'] },
+    'react-ts': { path: 'react-ts', dependencies: ['iwr', 'git'] },
+    'react-rule': {
+      path: 'react-rule',
+      dependencies: [
+        '.vscode',
+        '.husky',
+        'iwr',
+        'commitlint',
+        'eslint',
+        'prettier',
+        'git',
+      ],
+    },
+    'react-ts-rule': {
+      path: 'react-ts-rule',
+      dependencies: [
+        '.vscode',
+        '.husky',
+        'iwr',
+        'commitlint',
+        'eslint',
+        'prettier',
+        'git',
+      ],
     },
   },
 };
@@ -41,16 +73,16 @@ export const ruleConfig = {
       'typescript',
       '@typescript-eslint/eslint-plugin',
     ],
-    files: ['rule/.eslintignore', 'rule/.eslintrc.js', '.husky/pre-commit'],
+    files: ['eslint/.eslintignore', 'eslint/.eslintrc.js', '.husky/pre-commit'],
   },
   /** commitlint 相关配置依赖 */
   commitlint: {
     dependencies: ['@commitlint/cli', '@commitlint/config-conventional'],
-    files: ['rule/commitlint.config.js', '.husky/commit-msg'],
+    files: ['commitlint/commitlint.config.js', '.husky/commit-msg'],
   },
   /** 格式化相关配置依赖 */
   prettier: {
     dependencies: ['eslint-plugin-prettier', 'prettier'],
-    files: ['rule/.prettierrc', 'rule/.prettierignore', '.vscode'],
+    files: ['prettier/.prettierrc', 'prettier/.prettierignore', '.vscode'],
   },
 };
