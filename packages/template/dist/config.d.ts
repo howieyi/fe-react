@@ -11,11 +11,23 @@ export declare const templateConfig: {
     rule: string;
   };
   packages: {
+    lerna: {
+      path: string;
+      dependencies: string[];
+    };
     react: {
       path: string;
       dependencies: string[];
     };
     'react-ts': {
+      path: string;
+      dependencies: string[];
+    };
+    'react-rule': {
+      path: string;
+      dependencies: string[];
+    };
+    'react-ts-rule': {
       path: string;
       dependencies: string[];
     };

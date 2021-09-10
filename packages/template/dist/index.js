@@ -74,6 +74,9 @@ const generateTemplate = (
 ) => {
   const templateKey = getTemplateName(template);
   if (!templateKey) throw new Error('💣 没有找到对应模板');
+  // 是否 lerna 模板
+  const isLernaTemplate = templateKey === 'lerna';
+  const copyInDirs = ['iwr', 'commitlint', 'eslint', 'prettier', 'git'];
   const tempConfig = config_1.templateConfig.packages[templateKey];
   const fromRoot = path_1.join(__dirname, '../');
   const toRoot = path_1.join(toPath, name);
@@ -85,7 +88,7 @@ const generateTemplate = (
   // 迁移依赖代码
   tempConfig.dependencies.forEach(it => {
     const dependPath = path_1.join(fromRoot, 'dependencies', it);
-    if (it === 'rule') {
+    if (copyInDirs.includes(it)) {
       // 生成规则到目录下
       fs_extra_1.copySync(dependPath, toRoot);
     } else {
@@ -96,16 +99,20 @@ const generateTemplate = (
   // 更新 package.json
   const packageJsonPath = path_1.join(toRoot, 'package.json');
   const toPackageJson = fs_extra_1.readJsonSync(packageJsonPath);
-  toPackageJson.name = name;
-  toPackageJson.version = version;
+  if (!isLernaTemplate) {
+    toPackageJson.name = name;
+    toPackageJson.version = version;
+  }
   toPackageJson.author = author;
   toPackageJson.description = description;
+  // 更新 package.json
   fs_extra_1.writeJsonSync(packageJsonPath, toPackageJson, { spaces: 2 });
   // 更新配置文件端口
   const stcConfigFile = path_1.join(toRoot, 'iwr.config.js');
-  transferFile(stcConfigFile, stcConfigFile, data =>
-    data.replace(/\{iwr-port\}/g, port),
-  );
+  fs_extra_1.existsSync(stcConfigFile) &&
+    transferFile(stcConfigFile, stcConfigFile, data =>
+      data.replace(/\{iwr-port\}/g, port),
+    );
 };
 exports.generateTemplate = generateTemplate;
 /**

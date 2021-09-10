@@ -1,3 +1,9 @@
+## 1.0.7
+
+- 细化规则模板，拆分为 `prettier`、`eslint`、`commitlint`、`git`、`iwr`;
+- 新增 `lerna 模板`;
+- 新增无 `lint` 规则的 react js、ts 模板；
+
 ## 1.0.6
 
 - 修改默认 `copyPath` 为 `public`

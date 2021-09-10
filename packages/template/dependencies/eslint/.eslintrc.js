@@ -3,17 +3,17 @@ module.exports = {
     browser: true,
     commonjs: true,
     es2021: true,
-    node: true
+    node: true,
   },
   settings: {
     'import/resolver': {
-      typescript: {}
-    }
+      typescript: {},
+    },
   },
   extends: ['airbnb-base', 'airbnb-typescript', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 12,
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   rules: {
     'global-require': 'off',
@@ -41,6 +41,6 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/dot-notation': 'off',
-    '@typescript-eslint/no-unused-expressions': 'off'
-  }
+    '@typescript-eslint/no-unused-expressions': 'off',
+  },
 };
