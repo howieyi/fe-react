@@ -24,14 +24,14 @@ export default class Performance {
     this.onTrace = trace => {
       if (!trace || typeof trace !== 'function')
         throw new Error('Performance is not function of trace');
-      const page = this.getPageLoadTime();
-      const resource = this.getResourceTime();
-      const fp = this.getFPTime();
-      const fcp = this.getFCPTime();
       const oldOnload = window.onload;
       window.onload = e => {
         // @ts-ignore
         oldOnload && typeof oldOnload === 'function' && oldOnload(e);
+        const page = this.getPageLoadTime();
+        const resource = this.getResourceTime();
+        const fp = this.getFPTime();
+        const fcp = this.getFCPTime();
         const data = { page, resource, fp, fcp };
         window.requestIdleCallback
           ? window.requestIdleCallback(() => trace(data))
