@@ -9,6 +9,7 @@
 - [`@iosecret/wechat` 微信生态开发](#wechat)：对于微信生态开发的统一处理；
 - [`@iosecret/service` 公共服务提供](#service)：对于公共服务的统一处理，比如请求、时间等；
 - [`@iosecret/mui` h5 简易组件库](#mui)：简易组件集成，通用组件库没有或者小而美的组件功能；
+- [`@iosecret/performance` 性能检测上报工具](#performance)：检测页面加载、超时资源、FP、FCP 等，并提供资源上报；
 
 ## [cli](./packages/cli/README.md)
 
@@ -199,4 +200,31 @@ request({ url: '' }).then();
 import { showToast } from '@iosecret/mui';
 
 showToast('简易 toast');
+```
+
+## [performance](./packages/performance/README.md)
+
+> 性能检测上报工具
+
+## Usage
+
+```typescript
+import Per from '@iosecret/performance';
+
+const per = new Per(2000);
+
+// 1. 获取首次绘制时间点
+per.getFPTime();
+
+// 2. 获取首次内容绘制时间点（文本、图片（包含背景图）、非白色的canvas或SVG时）
+per.getFCPTime();
+
+// 3. 获取页面加载数据
+per.getPageTime();
+
+// 4. 获取资源加载超时列表数据
+per.getResourceTime();
+
+// 5. 定义数据上报规则
+per.onTrace(data => trace(data));
 ```
