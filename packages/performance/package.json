@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/performance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "性能检测",
   "keywords": [
     "performance"
