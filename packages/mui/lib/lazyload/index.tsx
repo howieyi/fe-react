@@ -1,7 +1,7 @@
-import { observerSource } from 'lib/service/observer';
 import React, { ReactElement, useEffect, useMemo } from 'react';
+import { observerSource } from '../service/observer';
 
-require('index.css');
+require('./index.css');
 
 interface ILazyLoadProps<T = any> {
   /** 外部图片渲染，注意 img 标签设置为 data-src */

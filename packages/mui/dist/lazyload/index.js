@@ -1,6 +1,6 @@
-import { observerSource } from 'lib/service/observer';
 import React, { useEffect, useMemo } from 'react';
-require('index.css');
+import { observerSource } from '../service/observer';
+require('./index.css');
 /**
  * 图片懒加载组件
  *
