@@ -1,3 +1,5 @@
+type SourceType = HTMLImageElement | HTMLVideoElement | HTMLSourceElement;
+
 const getObserver = (): Promise<typeof IntersectionObserver> => {
   return new Promise(resolve => {
     if (window.IntersectionObserver) {
@@ -19,9 +21,7 @@ const getObserver = (): Promise<typeof IntersectionObserver> => {
  * @returns
  */
 export const observerSource = (
-  entries: HTMLCollectionOf<
-    HTMLImageElement | HTMLVideoElement | HTMLSourceElement
-  >,
+  entries: HTMLCollectionOf<SourceType> | NodeListOf<SourceType>,
 ) => {
   if (!entries || !entries.length) return;
 
