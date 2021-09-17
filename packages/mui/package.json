@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/mui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "h5 通用 ui 库",
   "keywords": [
     "react",
@@ -44,5 +44,6 @@
   "dependencies": {
     "intersection-observer": "^0.12.0",
     "react": "^17.0.2"
-  }
+  },
+  "sideEffects": false
 }

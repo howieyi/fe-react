@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/wechat",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "微信常用场景工具方法",
   "keywords": [
     "wechat"
@@ -23,5 +23,6 @@
     "rimraf": "^3.0.2",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
-  }
+  },
+  "sideEffects": false
 }

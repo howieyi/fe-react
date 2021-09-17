@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/service",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "公共服务",
   "keywords": [
     "service",
@@ -42,5 +42,6 @@
   "devDependencies": {
     "rimraf": "^3.0.2",
     "typescript": "^4.4.2"
-  }
+  },
+  "sideEffects": false
 }
