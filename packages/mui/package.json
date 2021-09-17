@@ -44,5 +44,6 @@
   "dependencies": {
     "intersection-observer": "^0.12.0",
     "react": "^17.0.2"
-  }
+  },
+  "sideEffects": false
 }
