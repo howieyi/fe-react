@@ -1,6 +1,6 @@
 {
   "name": "@iosecret/eslint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react eslint 规则定制",
   "keywords": [
     "eslint"
@@ -9,11 +9,10 @@
   "homepage": "https://github.com/howieyi/fe-react#readme",
   "license": "ISC",
   "main": "lib/index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "directories": {},
   "files": [
-    "lib"
+    "index.js",
+    "README.md"
   ],
   "publishConfig": {
     "access": "public",
