@@ -1,4 +1,6 @@
 module.exports = {
   extends: ['iwr-react'],
-  rules: {},
+  rules: {
+    'arrow-parens': 'off',
+  },
 };
