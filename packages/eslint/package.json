@@ -3,7 +3,9 @@
   "version": "1.0.3",
   "description": "react eslint 规则定制",
   "keywords": [
-    "eslint"
+    "eslint",
+    "typescript",
+    "react"
   ],
   "author": "水逆",
   "homepage": "https://github.com/howieyi/fe-react#readme",
