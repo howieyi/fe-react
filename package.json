@@ -23,7 +23,7 @@
     "publish:animate": "npm run build:animate && npm run stage && yarn workspace @iosecret/animate publish && node ./scripts/tag.js --package=animate",
     "publish:mui": "npm run build:mui && npm run stage && yarn workspace @iosecret/mui publish && node ./scripts/tag.js --package=mui",
     "publish:performance": "npm run build:performance && npm run stage && yarn workspace @iosecret/performance publish && node ./scripts/tag.js --package=performance",
-    "publish:eslint": "npm run stage && yarn workspace @iosecret/eslint publish && node ./scripts/tag.js --package=eslint"
+    "publish:eslint": "npm run stage && yarn workspace eslint-config-iwr-react publish && node ./scripts/tag.js --package=eslint"
   },
   "workspaces": [
     "packages/*"
