@@ -69,7 +69,7 @@ export const ruleConfig = {
   },
   /** 格式化相关配置依赖 */
   prettier: {
-    dependencies: [],
+    dependencies: [] as string[],
     files: ['prettier/.prettierrc', 'prettier/.prettierignore', '.vscode'],
   },
 };
