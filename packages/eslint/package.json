@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-iwr-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react eslint 规则定制",
   "keywords": [
     "eslint"
@@ -11,6 +11,7 @@
   "main": "lib/index.js",
   "directories": {},
   "files": [
+    "rules",
     "index.js",
     "README.md"
   ],

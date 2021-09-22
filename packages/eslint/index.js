@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['airbnb-base', 'plugin:prettier/recommended', './rules/ts'],
+  extends: [
+    'airbnb-base',
+    'plugin:prettier/recommended',
+    require.resolve('./rules/ts'),
+  ],
 
   rules: {},
 };
