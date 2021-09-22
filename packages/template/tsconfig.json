@@ -3,7 +3,6 @@
   "compilerOptions": {
     "sourceMap": false,
     "importHelpers": true,
-    "resolveJsonModule": true,
     "module": "ES2015",
     "outDir": "dist/",
     "baseUrl": "."

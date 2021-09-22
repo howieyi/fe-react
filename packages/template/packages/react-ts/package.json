@@ -21,6 +21,5 @@
     "@types/react-router-dom": "^5.1.7",
     "iwr": "^1.0.22"
   },
-  "license": "ISC",
-  "sideEffects": false
+  "license": "ISC"
 }
