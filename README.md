@@ -5,6 +5,7 @@
 > - 为了更方便赚外快，哈哈哈
 
 - [`cli` 命令行工具](#cli)：基于 react 的构建工具；
+- [`eslint-config-eslint-react`](#eslint)：基于 react typescript 的自有 eslint 规则整合方案；
 - [`@iosecret/storage` 缓存处理](#storage)：对于 storage 的统一处理；
 - [`@iosecret/wechat` 微信生态开发](#wechat)：对于微信生态开发的统一处理；
 - [`@iosecret/service` 公共服务提供](#service)：对于公共服务的统一处理，比如请求、时间等；
@@ -38,11 +39,11 @@ $ iwr
 ```bash
 → iwr                                                                                                    [721a6b4]
 Usage: iwr
-  _                 _   ___   ____  _
- (_)_      ___ __  / | / _ \ |___ \/ |
- | \ \ /\ / / '__| | || | | |  __) | |
- | |\ V  V /| |    | || |_| | / __/| |
- |_| \_/\_/ |_|    |_(_)___(_)_____|_|
+  _                 _   ___   ____  _____
+ (_)_      ___ __  / | / _ \ |___ \|___ /
+ | \ \ /\ / / '__| | || | | |  __) | |_ \
+ | |\ V  V /| |    | || |_| | / __/ ___) |
+ |_| \_/\_/ |_|    |_(_)___(_)_____|____/
 
 Params:
   dev:
@@ -111,6 +112,53 @@ $ iwr umd
 $ iwr rule
 # 制定路径生成
 $ iwr rule -o <output>
+```
+
+## [eslint](./packages/eslint/README.md)
+
+> 自定义通用 eslint 规则，整合常规 eslint 开发规则，外部方便引用和扩展
+>
+> 1. 基于 `airbnb`，`airbnb-typescript`；
+> 2. 基于常规 `typescript` 规则；
+> 3. 基于常规 `react` 规则；
+> 4. 加入了使用中的一些非强制习惯规则；
+> 5. 内置了 `prettier` 的规则监听以及依赖;
+> 6. 内置了 `lint-stage` 相关的包依赖；
+>
+> 注：此规则最适合 react typescript 开发者，当然 javascript 也同样可以使用
+
+### 安装
+
+```bash
+$ npm i eslint-config-iwr-react
+```
+
+### 使用
+
+- `eslint` 配置文件继承规则
+
+```javascript
+// 在 .eslintrc 或者其他 eslint 配置文件中
+module.exports = {
+  extends: ['iwr-react'],
+
+  // ...
+};
+```
+
+### lint-staged 配合支持
+
+> 内置了 lint-staged 相关的依赖支持
+
+- 在工程 `package.json` 中配置 `lint-staged` 过滤规则
+
+```json
+{
+  // ...
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": ["prettier --write", "eslint --fix"]
+  }
+}
 ```
 
 ## [storage](./packages/storage/README.md)
