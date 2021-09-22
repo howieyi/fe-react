@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-iwr-react",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "react eslint 规则定制",
   "keywords": [
     "eslint",
