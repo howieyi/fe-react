@@ -28,6 +28,8 @@ module.exports = {
   },
 
   rules: {
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
     'no-console': 'off',
     'jsx-a11y/no-noninteractive-element-to-interactive-role': 'off',
     'jsx-a11y/anchor-is-valid': 'off',

@@ -5,7 +5,5 @@ module.exports = {
     require.resolve('./rules/ts'),
   ],
 
-  rules: {
-    'comma-dangle': 'off',
-  },
+  rules: {},
 };
