@@ -1,4 +1,5 @@
 const ora = require('ora');
+const { join } = require('path');
 const { red } = require('chalk');
 const { prompt } = require('inquirer');
 const { exec, echo } = require('shelljs');
@@ -6,6 +7,8 @@ const {
   getTemplateQuestionList,
   generateTemplate,
 } = require('@iosecret/template');
+const { existsSync, readJsonSync, writeJsonSync } = require('fs-extra');
+const iwrVersion = require('../package.json').version;
 
 const iwrCreate = program => {
   const templateList = getTemplateQuestionList();
@@ -54,7 +57,7 @@ const iwrCreate = program => {
     .command('create')
     .description('🍉 初始化工程')
     .action(() => {
-      const spinner = ora(`🌰 工程初始化中 \n`);
+      const spinner = ora('🌰 工程初始化中 \n');
 
       prompt(questions)
         .then(options => {
@@ -65,10 +68,20 @@ const iwrCreate = program => {
           // 复制项目模板
           generateTemplate(process.cwd(), options);
 
+          console.log(111, name);
+
+          // 更新 iwr 版本到最新
+          const packageJson = join(process.cwd(), `${name}/package.json`);
+          if (existsSync(packageJson)) {
+            const json = readJsonSync(packageJson);
+            json.devDependencies.iwr = `^${iwrVersion}`;
+            writeJsonSync(packageJson, json, { spaces: 2 });
+          }
+
           spinner.text = '🌰 工程生成完成';
 
           // 执行 npm i 脚本
-          spinner.text = `🍉 依赖安装中... \n`;
+          spinner.text = '🍉 依赖安装中... \n';
           exec(`cd ${name} && npm i`, code => {
             spinner.text = code !== 0 ? '💣 依赖安装失败' : '🇨🇳 依赖安装成功';
             setTimeout(() => {

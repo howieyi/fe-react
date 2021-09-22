@@ -60,20 +60,7 @@ exports.templateConfig = {
 exports.ruleConfig = {
   /** eslint 相关配置依赖 */
   eslint: {
-    dependencies: [
-      'eslint',
-      'eslint-config-airbnb-base',
-      'lint-staged',
-      'eslint-config-airbnb-typescript',
-      'eslint-config-prettier',
-      'eslint-plugin-import',
-      'eslint-plugin-jsx-a11y',
-      'eslint-plugin-react',
-      'eslint-plugin-react-hooks',
-      'eslint-import-resolver-typescript',
-      'typescript',
-      '@typescript-eslint/eslint-plugin',
-    ],
+    dependencies: ['eslint-config-iwr-react'],
     files: ['eslint/.eslintignore', 'eslint/.eslintrc.js', '.husky/pre-commit'],
   },
   /** commitlint 相关配置依赖 */
@@ -83,7 +70,7 @@ exports.ruleConfig = {
   },
   /** 格式化相关配置依赖 */
   prettier: {
-    dependencies: ['eslint-plugin-prettier', 'prettier'],
+    dependencies: [],
     files: ['prettier/.prettierrc', 'prettier/.prettierignore', '.vscode'],
   },
 };

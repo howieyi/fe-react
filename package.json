@@ -8,7 +8,7 @@
     "publish": "lerna publish from-package --skip-git",
     "link:iwr": "yarn workspace iwr link",
     "stage": "git add .",
-    "build:storage": "yarn workspace @iosecret/storage build:esm && prettier -w ./packages/storage/dist/**/*.js",
+    "build:storage": "yarn workspace @iosecret/storage build && prettier -w ./packages/storage/dist/**/*.js",
     "build:wechat": "yarn workspace @iosecret/wechat build:esm && prettier -w ./packages/wechat/dist/**/*.js",
     "build:template": "yarn workspace @iosecret/template build && prettier -w ./packages/template/dist/**/*.{js,ts}",
     "build:service": "yarn workspace @iosecret/service build && prettier -w ./packages/service/dist/**/*.{js,ts}",
@@ -22,7 +22,8 @@
     "publish:service": "npm run build:service && npm run stage && yarn workspace @iosecret/service publish && node ./scripts/tag.js --package=service",
     "publish:animate": "npm run build:animate && npm run stage && yarn workspace @iosecret/animate publish && node ./scripts/tag.js --package=animate",
     "publish:mui": "npm run build:mui && npm run stage && yarn workspace @iosecret/mui publish && node ./scripts/tag.js --package=mui",
-    "publish:performance": "npm run build:performance && npm run stage && yarn workspace @iosecret/performance publish && node ./scripts/tag.js --package=performance"
+    "publish:performance": "npm run build:performance && npm run stage && yarn workspace @iosecret/performance publish && node ./scripts/tag.js --package=performance",
+    "publish:eslint": "npm run stage && yarn workspace eslint-config-iwr-react publish && node ./scripts/tag.js --package=eslint"
   },
   "workspaces": [
     "packages/*"
@@ -37,21 +38,9 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "eslint": "^7.30.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
+    "eslint-config-iwr-react": "^1.0.3",
     "husky": "^7.0.1",
     "lerna": "^4.0.0",
-    "lint-staged": "^11.0.1",
-    "prettier": "^2.3.2",
-    "rimraf": "^3.0.2",
-    "tslib": "^2.3.0",
-    "typescript": "^4.3.5"
+    "prettier": "^2.3.2"
   }
 }
