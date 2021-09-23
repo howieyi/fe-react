@@ -68,8 +68,6 @@ const iwrCreate = program => {
           // 复制项目模板
           generateTemplate(process.cwd(), options);
 
-          console.log(111, name);
-
           // 更新 iwr 版本到最新
           const packageJson = join(process.cwd(), `${name}/package.json`);
           if (existsSync(packageJson)) {
