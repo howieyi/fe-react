@@ -49,7 +49,7 @@ module.exports = ({ name = null } = {}) => {
         host: host || '0.0.0.0',
         disableHostCheck: true,
         open: true,
-        index: `index.html`,
+        index: 'index.html',
         port,
         historyApiFallback: true,
         watchContentBase: true,
@@ -76,7 +76,7 @@ module.exports = ({ name = null } = {}) => {
         after: () => {
           console.log(chalk.yellow(`\n> 构建目录 ${app.buildPath}`));
           console.log(chalk.green(`> 服务端口监听 ${port}`));
-          console.log(chalk.yellow(`> 服务正在启动...\n`));
+          console.log(chalk.yellow('> 服务正在启动...\n'));
         },
       },
 
@@ -84,7 +84,7 @@ module.exports = ({ name = null } = {}) => {
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
             messages: [
-              `Project start at \n ${chalk.green(
+              `\nProject start at \n ${chalk.green(
                 ` > http://127.0.0.1:${port}/`,
               )}\n ${chalk.green(` > http://${getIPAddress()}:${port}/`)}\n`,
             ],

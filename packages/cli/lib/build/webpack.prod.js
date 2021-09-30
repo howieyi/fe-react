@@ -19,8 +19,8 @@ module.exports = app => {
 
         // 把所有的样式都合并到一个文件
         new MiniCssExtractPlugin({
-          filename: `static/styles/[name].[contenthash:5].css`,
-          chunkFilename: `static/styles/[name].[contenthash:5].css`,
+          filename: 'static/styles/[name].[contenthash:5].css',
+          chunkFilename: 'static/styles/[name].[contenthash:5].css',
         }),
       ],
     },

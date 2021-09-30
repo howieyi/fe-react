@@ -10,7 +10,7 @@ module.exports = (arg, { module }) => {
     options: {
       sourceMaps: true,
       babelrc: true,
-      configFile: join(__dirname, `../../../config/.babelrc`),
+      configFile: join(__dirname, '../../../config/.babelrc'),
     },
   });
 };
